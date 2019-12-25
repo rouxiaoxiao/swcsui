@@ -1,0 +1,233 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>故宫世界文化遗产监测-室外陈设监测</title>
+    <link rel="stylesheet" type="text/css" href="css/reset.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="css/text.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="css/grid.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="css/layout.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="css/nav.css" media="screen" />
+    <!--[if IE 6]><link rel="stylesheet" type="text/css" href="css/ie6.css" media="screen" /><![endif]-->
+    <!--[if IE 7]><link rel="stylesheet" type="text/css" href="css/ie.css" media="screen" /><![endif]-->
+    <link href="css/table/demo_page.css" rel="stylesheet" type="text/css" />
+    <!-- BEGIN: load jquery -->
+    <script src="js/jquery-1.6.4.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/jquery-ui/jquery.ui.core.min.js"></script>
+    <script src="js/jquery-ui/jquery.ui.widget.min.js" type="text/javascript"></script>
+    <script src="js/jquery-ui/jquery.ui.accordion.min.js" type="text/javascript"></script>
+    <script src="js/jquery-ui/jquery.effects.core.min.js" type="text/javascript"></script>
+    <script src="js/jquery-ui/jquery.effects.slide.min.js" type="text/javascript"></script>
+    <script src="js/jquery-ui/jquery.ui.mouse.min.js" type="text/javascript"></script>
+    <script src="js/jquery-ui/jquery.ui.sortable.min.js" type="text/javascript"></script>
+    <script src="js/table/jquery.dataTables.min.js" type="text/javascript"></script>
+    <!-- END: load jquery -->
+    <script type="text/javascript" src="js/table/table.js"></script>
+    <script src="js/setup.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            setupLeftMenu();
+
+            $('.datatable').dataTable();
+			setSidebarHeight();
+
+
+        });
+    </script>
+</head>
+<body>
+    <div class="container_12">
+         <div class="grid_12 header-repeat">
+            <div id="branding">
+                <div class="floatleft">
+                    <img src="img/logo.png" alt="Logo" /></div>
+                  <div class="grid_6">
+                <ul class="nav main">
+                <li class="ic-home"><a href="index.html"><span>首页</span></a></li>
+                <li class="ic-jianceguanli"><a href="jianceheguanli.html"><span>监测与管理</span></a></li>
+                <li class="ic-xingzhixinxi"><a href="xingzhixinxi.html"><span>测绘信息</span></a></li>
+				<li class="ic-wenxianguanli"><a href="wenxianxinxi.html"><span>文档信息</span></a></li>
+                <li class="ic-shujuguanli"><a href="javascript:"><span>数据管理</span></a></li>
+                <li class="ic-xitongguanli"><a href="xitongguanli.html"><span>系统管理</span></a></li>
+            </ul>
+        </div>  
+                <div class="floatright">
+                    <div class="floatleft">
+                        <img src="img/img-profile.jpg" alt="Profile Pic" /></div>
+                    <div class="floatleft marginleft10">
+                        <ul class="inline-ul floatleft">
+                            <li>资料信息部 张可</li>
+                            <li><a href="#">退出</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="clear">
+                </div>
+            </div>
+        </div>
+        <div class="clear">
+        </div>
+        <div class="grid_2">
+            <div class="box sidemenu">
+                <div class="block" id="section-menu">
+                    <ul class="section menu">
+                        <li><a class="menuitem">文物信息</a></li>
+                        <li><a class="menuitem">借拨收存信息</a></li>
+                        <li><a class="menuitem">保养维护信息</a></li>
+                        <li><a class="menuitem">保护修复信息</a></li>
+                        <li><a class="menuitem">材质检测信息</a></li>
+                        <li><a class="menuitem">常规监测信息</a></li>
+                        <li><a class="menuitem">专项检测信息</a></li>
+                        <li><a class="menuitem">日常巡检</a>
+                            <ul class="submenu">
+                                <li><a>定期巡检</a> </li>
+                                <li><a>不定期巡检</a> </li>
+                            </ul>
+                        </li>
+                        <li><a class="menuitem">报警信息</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="grid_10">
+            <div class="box round"><!-- style="height: 1px" -->
+            <h2>检索条件</h2>
+                <div class="block" >
+                     <form>
+                    <table class="form">
+                        <tr>
+                            <td class="col1">
+                                <label>文物号</label>
+                            </td>
+                            <td class="col2">
+                                <input type="text" id="grumble" />
+                            </td>
+                            <td class="col1">
+                                <label>文物名称</label>
+                            </td>
+                            <td class="col2">
+                                <input type="text" id="grumble" />
+                            </td>
+                            <td class="col1">
+                                <label>文物材质</label>
+                            </td>
+                            <td class="col2">
+                                <input type="text" id="grumble" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col1">
+                                <label>主体</label>
+                            </td>
+                            <td class="col2">
+                                <input type="text" id="grumble" />
+                            </td>
+                            <td class="col1">
+                                <label>保存状况</label>
+                            </td>
+                            <td class="col2">
+                                <input type="text" id="grumble" />
+                            </td>
+                            <td class="col1">
+                                <label>病害分类</label>
+                            </td>
+                            <td class="col2">
+                                <input type="text" id="grumble" />
+                            </td>
+                        </tr>
+                        <tr><td colspan="6">
+                        <button class="btn btn-blue">查询</button>
+                        <button class="btn btn-blue">清除</button>
+                        <button class="btn btn-blue">数据同步</button>
+                        </td></tr>
+                        </table>
+                        </form>
+                </div>
+            </div>
+        </div>
+        
+        <div class="grid_10">
+            <div class="box round grid">
+                <h2>文物信息</h2>
+                <div class="block">
+                    <table class="data display datatable" id="example">
+					<thead>
+						<tr>
+							<th>文物号</th>
+							<th>文物名称</th>
+							<th>文物材质</th>
+							<th>时代</th>
+							<th>所在区域</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="odd gradeX">
+							<td>故0000001</td>
+							<td>石狮</td>
+							<td>石质</td>
+							<td>清</td>
+							<td>武英殿</td>
+							<td><a href="#" >编辑</a></td>
+						</tr>
+						<tr class="odd gradeX">
+							<td>故0000002</td>
+							<td>石狮</td>
+							<td>石质</td>
+							<td>清</td>
+							<td>武英殿</td>
+							<td><a href="#" >编辑</a></td>
+						</tr>
+						<tr class="odd gradeX">
+							<td>故0000003</td>
+							<td>石狮</td>
+							<td>石质</td>
+							<td>清</td>
+							<td>武英殿</td>
+							<td><a href="#" >编辑</a></td>
+						</tr>
+						<tr class="odd gradeX">
+							<td>故0000004</td>
+							<td>石狮</td>
+							<td>石质</td>
+							<td>清</td>
+							<td>武英殿</td>
+							<td><a href="#" >编辑</a></td>
+						</tr>
+						<tr class="odd gradeX">
+							<td>故0000005</td>
+							<td>石狮</td>
+							<td>石质</td>
+							<td>清</td>
+							<td>武英殿</td>
+							<td><a href="#" >编辑</a></td>
+						</tr>
+						<tr class="odd gradeX">
+							<td>故0000006</td>
+							<td>石狮</td>
+							<td>石质</td>
+							<td>清</td>
+							<td>武英殿</td>
+							<td><a href="#" >编辑</a></td>
+						</tr>
+						<tr class="odd gradeX">
+							<td>故0000007</td>
+							<td>石狮</td>
+							<td>石质</td>
+							<td>清</td>
+							<td>武英殿</td>
+							<td><a href="#" >编辑</a></td>
+						</tr>
+					</tbody>
+				</table>
+                </div>
+            </div>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="clear">
+    </div>
+</body>
+</html>
