@@ -8,9 +8,9 @@
     <link rel="stylesheet" type="text/css" href="css/grid.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="css/layout.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="css/nav.css" media="screen" />
+    <link href="css/table/demo_page.css" rel="stylesheet" type="text/css" />
     <!--[if IE 6]><link rel="stylesheet" type="text/css" href="css/ie6.css" media="screen" /><![endif]-->
     <!--[if IE 7]><link rel="stylesheet" type="text/css" href="css/ie.css" media="screen" /><![endif]-->
-    <link href="css/table/demo_page.css" rel="stylesheet" type="text/css" />
     <!-- BEGIN: load jquery -->
     <script src="js/jquery-1.6.4.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="js/jquery-ui/jquery.ui.core.min.js"></script>
@@ -18,22 +18,44 @@
     <script src="js/jquery-ui/jquery.ui.accordion.min.js" type="text/javascript"></script>
     <script src="js/jquery-ui/jquery.effects.core.min.js" type="text/javascript"></script>
     <script src="js/jquery-ui/jquery.effects.slide.min.js" type="text/javascript"></script>
-    <script src="js/jquery-ui/jquery.ui.mouse.min.js" type="text/javascript"></script>
+    <!-- END: load jquery -->
+    <!-- BEGIN: load jqplot -->
+    <link rel="stylesheet" type="text/css" href="css/jquery.jqplot.min.css" />
+    <!--[if lt IE 9]><script language="javascript" type="text/javascript" src="js/jqPlot/excanvas.min.js"></script><![endif]-->
+    <script language="javascript" type="text/javascript" src="js/jqPlot/jquery.jqplot.min.js"></script>
+    <script language="javascript" type="text/javascript" src="js/jqPlot/plugins/jqplot.barRenderer.min.js"></script>
+    <script language="javascript" type="text/javascript" src="js/jqPlot/plugins/jqplot.pieRenderer.min.js"></script>
+    <script language="javascript" type="text/javascript" src="js/jqPlot/plugins/jqplot.categoryAxisRenderer.min.js"></script>
+    <script language="javascript" type="text/javascript" src="js/jqPlot/plugins/jqplot.highlighter.min.js"></script>
+    <script language="javascript" type="text/javascript" src="js/jqPlot/plugins/jqplot.pointLabels.min.js"></script>
     <script src="js/jquery-ui/jquery.ui.sortable.min.js" type="text/javascript"></script>
     <script src="js/table/jquery.dataTables.min.js" type="text/javascript"></script>
-    <!-- END: load jquery -->
+    <!-- END: load jqplot -->
     <script type="text/javascript" src="js/table/table.js"></script>
     <script src="js/setup.js" type="text/javascript"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=3.0&ak=HbfM1ta0T32ZErL8Wks0vjRRpbtsB0AL">
+//v3.0版本的引用方式：src="http://api.map.baidu.com/api?v=3.0&ak=您的密钥"
+</script>
     <script type="text/javascript">
 
         $(document).ready(function () {
             setupLeftMenu();
 
+            drawBarchart('bar-chart');
+  			setSidebarHeight();
             $('.datatable').dataTable();
-			setSidebarHeight();
-
+            initmap();
 
         });
+
+        function initmap(){
+        	var map = new BMap.Map("container");
+        	// 创建地图实例  
+        	var point = new BMap.Point(116.404, 39.924);
+        	// 创建点坐标  
+        	map.centerAndZoom(point, 16);
+        	// 初始化地图，设置中心点坐标和地图级别  
+        }
         function expend(divname){
         	if($("#"+divname).height()==1){
             	$("#"+divname).height("auto");
@@ -52,9 +74,9 @@
                   <div class="grid_6">
                 <ul class="nav main">
                 <li class="ic-home"><a href="index.html"><span>首页</span></a></li>
-                <li class="ic-jianceguanli"><a href="jianceheguanli.html"><span>监测与管理</span></a></li>
-                <li class="ic-xingzhixinxi"><a href="xingzhixinxi.html"><span>测绘信息</span></a></li>
-				<li class="ic-wenxianguanli"><a href="javascript:"><span>文档信息</span></a></li>
+                <li class="ic-jianceguanli"><a href="javascript:"><span>监测与管理</span></a></li>
+                <li class="ic-xingzhixinxi"><a href="cehuixinxi.html"><span>测绘信息</span></a></li>
+				<li class="ic-wenxianguanli"><a href="wendangguanli.html"><span>文档管理</span></a></li>
                 <li class="ic-shujuguanli"><a href="shujuguanli.html"><span>数据管理</span></a></li>
                 <li class="ic-xitongguanli"><a href="xitongguanli.html"><span>系统管理</span></a></li>
             </ul>
@@ -73,53 +95,64 @@
                 </div>
             </div>
         </div>
-        <div class="clear">
+       <div class="clear">
         </div>
+
         <div class="grid_2">
             <div class="box sidemenu">
                 <div class="block" id="section-menu">
                     <ul class="section menu">
-                        <li><a class="menuitem">文档管理</a>
+                        <li><a class="menuitem">常规检测</a>
                             <ul class="submenu">
-                                <li><a>研究文献</a> </li>
-                                <li><a>监测报告</a> </li>
-                                <li><a>相关文档</a> </li>
+                                <li><a href="jianceyuguanli/wenwushuliangtongji.html">文物数量统计</a> </li>
+                                <li><a>保存现状统计</a> </li>
+                                <li><a class="active">物理性能检测</a> </li>
+                                <li><a>病害信息</a> </li>
+                                <li><a>病害产物分析</a> </li>
                             </ul>
                         </li>
-                        
+                        <li><a class="menuitem">专项监测</a>
+                            <ul class="submenu">
+                                <li><a>结构变化监测</a> </li>
+                                <li><a>病害变化监测</a> </li>
+                            </ul>
+                        </li>
+                        <li><a class="menuitem">报警信息</a>  </li>
+                        <li><a class="menuitem">材质检测信息</a> </li>
+                        <li><a class="menuitem">管理和保护</a>
+                            <ul class="submenu">
+                                <li><a>日常巡检</a> </li>
+                                <li><a>保养维护</a> </li>
+                                <li><a>保护维修</a> </li>
+                                <li><a>借拨收存</a> </li>
+                                <li><a>损毁丢失</a> </li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </div>
-        </div>  
-        <div class="grid_10">
-            <div class="box round" id="jiansuotiaojian"><!-- style="height: 1px" -->
+        </div>
+        <div class="grid_5">
+            <div class="box round">
+                <div class="block" id="container" style="height: 500px">
+                </div>
+            </div>
+        </div>
+        <div class="grid_5">
+            <div class="box round" style="height: 1px" id="jiansuotiaojian"><!-- style="height: 1px" -->
             <h2 onclick="expend('jiansuotiaojian')">检索条件<img src="img/help.png" alt="help" title="点击可以折叠/展开检索条件" height="15px" width="15px"/></h2>
                 <div class="block" >
-                     <form>
+                    <form>
                     <table class="form">
                         <tr>
                             <td class="col1">
-                                <label>文献名称</label>
+                                <label>文物号</label>
                             </td>
                             <td class="col2">
                                 <input type="text" id="grumble" />
                             </td>
                             <td class="col1">
-                                <label>作者/著者</label>
-                            </td>
-                            <td class="col2">
-                                <input type="text" id="grumble" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="col1">
-                                <label>文献年代</label>
-                            </td>
-                            <td class="col2">
-                                <input type="text" id="grumble" />
-                            </td>
-                            <td class="col1">
-                                <label>相关室外陈设</label>
+                                <label>文物名称</label>
                             </td>
                             <td class="col2">
                                 <input type="text" id="grumble" />
@@ -127,13 +160,27 @@
                         </tr>
                         <tr>
                             <td class="col1">
-                                <label>关键字</label>
+                                <label>主体</label>
                             </td>
                             <td class="col2">
                                 <input type="text" id="grumble" />
                             </td>
                             <td class="col1">
-                                <label>录入时间</label>
+                                <label>保存状况</label>
+                            </td>
+                            <td class="col2">
+                                <input type="text" id="grumble" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col1">
+                                <label>文物材质</label>
+                            </td>
+                            <td class="col2">
+                                <input type="text" id="grumble" />
+                            </td>
+                            <td class="col1">
+                                <label>病害分类</label>
                             </td>
                             <td class="col2">
                                 <input type="text" id="grumble" />
@@ -142,140 +189,57 @@
                         <tr><td colspan="4">
                         <button class="btn btn-blue">查询</button>
                         <button class="btn btn-blue">清除</button>
-                        <button class="btn btn-blue">上传</button>
                         </td></tr>
                         </table>
-                     </form>
+                        </form>
                 </div>
             </div>
         </div>
-        <div class="grid_10">
+        
+        <div class="grid_5">
+            <div class="box round"><!-- style="height: 1px" -->
+            <h2>统计图</h2>
+                  <div id="bar-chart" style="height: 250px">
+                    </div>
+            </div>
+       </div>
+        <div class="grid_5" style="float: right;">
             <div class="box round">
-                <h2>文献管理</h2>
+            <h2>检索结果</h2>
                 <div class="block">
-                    <table class="data display datatable" id="example">
+                     <table class="data display datatable" id="example">
 					<thead>
 						<tr>
-							<th>文献名称</th>
-							<th>作者/著者</th>
-							<th>出版时间</th>
-							<th>关键字</th>
-							<th>操作</th>
+							<th>文物号</th>
+							<th>文物名称</th>
+							<th>材质</th>
+							<th>评估分级</th>
+							<th>评估时间</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr class="odd gradeX">
-							<td>关于故宫石质文物的研究.pdf</td>
-							<td>zhangsan</td>
-							<td>2000-12-12</td>
-							<td>故宫 文物 石质</td>
-							<td><a>修改</a><a>删除</a></td>
+							<td>故00000001</td>
+							<td>石狮</td>
+							<td>石质</td>
+							<td class="center">良好</td>
+							<td class="center">2014-09-21</td>
 						</tr>
-						<tr class="odd gradeX">
-							<td>关于故宫石质文物的研究.pdf</td>
-							<td>zhangsan</td>
-							<td>2000-12-12</td>
-							<td>故宫 文物 石质</td>
-							<td><a>修改</a><a>删除</a></td>
+						<tr class="gradeA">
+							<td>故00000002</td>
+							<td>石狮</td>
+							<td>石质</td>
+							<td class="center">良好</td>
+							<td class="center">2014-09-21</td>
 						</tr>
-						<tr class="odd gradeX">
-							<td>关于故宫石质文物的研究.pdf</td>
-							<td>zhangsan</td>
-							<td>2000-12-12</td>
-							<td>故宫 文物 石质</td>
-							<td><a>修改</a><a>删除</a></td>
+						<tr class="gradeB">
+							<td>故00000003</td>
+							<td>石狮</td>
+							<td>石质</td>
+							<td class="center">良好</td>
+							<td class="center">2014-09-21</td>
 						</tr>
-						<tr class="odd gradeX">
-							<td>关于故宫石质文物的研究.pdf</td>
-							<td>zhangsan</td>
-							<td>2000-12-12</td>
-							<td>故宫 文物 石质</td>
-							<td><a>修改</a><a>删除</a></td>
-						</tr>
-						<tr class="odd gradeX">
-							<td>关于故宫石质文物的研究.pdf</td>
-							<td>zhangsan</td>
-							<td>2000-12-12</td>
-							<td>故宫 文物 石质</td>
-							<td><a>修改</a><a>删除</a></td>
-						</tr>
-						<tr class="odd gradeX">
-							<td>关于故宫石质文物的研究.pdf</td>
-							<td>zhangsan</td>
-							<td>2000-12-12</td>
-							<td>故宫 文物 石质</td>
-							<td><a>修改</a><a>删除</a></td>
-						</tr>
-						<tr class="odd gradeX">
-							<td>关于故宫石质文物的研究.pdf</td>
-							<td>zhangsan</td>
-							<td>2000-12-12</td>
-							<td>故宫 文物 石质</td>
-							<td><a>修改</a><a>删除</a></td>
-						</tr>
-						<tr class="odd gradeX">
-							<td>关于故宫石质文物的研究.pdf</td>
-							<td>zhangsan</td>
-							<td>2000-12-12</td>
-							<td>故宫 文物 石质</td>
-							<td><a>修改</a><a>删除</a></td>
-						</tr>
-						<tr class="odd gradeX">
-							<td>关于故宫石质文物的研究.pdf</td>
-							<td>zhangsan</td>
-							<td>2000-12-12</td>
-							<td>故宫 文物 石质</td>
-							<td><a>修改</a><a>删除</a></td>
-						</tr>
-						<tr class="odd gradeX">
-							<td>关于故宫石质文物的研究.pdf</td>
-							<td>zhangsan</td>
-							<td>2000-12-12</td>
-							<td>故宫 文物 石质</td>
-							<td><a>修改</a><a>删除</a></td>
-						</tr>
-						<tr class="odd gradeX">
-							<td>关于故宫石质文物的研究.pdf</td>
-							<td>zhangsan</td>
-							<td>2000-12-12</td>
-							<td>故宫 文物 石质</td>
-							<td><a>修改</a><a>删除</a></td>
-						</tr>
-						<tr class="odd gradeX">
-							<td>关于故宫石质文物的研究.pdf</td>
-							<td>zhangsan</td>
-							<td>2000-12-12</td>
-							<td>故宫 文物 石质</td>
-							<td><a>修改</a><a>删除</a></td>
-						</tr>
-						<tr class="odd gradeX">
-							<td>关于故宫石质文物的研究.pdf</td>
-							<td>zhangsan</td>
-							<td>2000-12-12</td>
-							<td>故宫 文物 石质</td>
-							<td><a>修改</a><a>删除</a></td>
-						</tr>
-						<tr class="odd gradeX">
-							<td>关于故宫石质文物的研究.pdf</td>
-							<td>zhangsan</td>
-							<td>2000-12-12</td>
-							<td>故宫 文物 石质</td>
-							<td><a>修改</a><a>删除</a></td>
-						</tr>
-						<tr class="odd gradeX">
-							<td>关于故宫石质文物的研究.pdf</td>
-							<td>zhangsan</td>
-							<td>2000-12-12</td>
-							<td>故宫 文物 石质</td>
-							<td><a>修改</a><a>删除</a></td>
-						</tr>
-						<tr class="odd gradeX">
-							<td>关于故宫石质文物的研究.pdf</td>
-							<td>zhangsan</td>
-							<td>2000-12-12</td>
-							<td>故宫 文物 石质</td>
-							<td><a>修改</a><a>删除</a></td>
-						</tr>
+						
 					</tbody>
 				</table>
                 </div>

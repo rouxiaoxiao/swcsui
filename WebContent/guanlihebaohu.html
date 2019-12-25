@@ -9,7 +9,6 @@
     <link rel="stylesheet" type="text/css" href="css/layout.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="css/nav.css" media="screen" />
     <link href="css/table/demo_page.css" rel="stylesheet" type="text/css" />
-    <link href="css/tabs.css" rel="stylesheet" type="text/css" />
     <!--[if IE 6]><link rel="stylesheet" type="text/css" href="css/ie6.css" media="screen" /><![endif]-->
     <!--[if IE 7]><link rel="stylesheet" type="text/css" href="css/ie.css" media="screen" /><![endif]-->
     <!-- BEGIN: load jquery -->
@@ -42,6 +41,7 @@
         $(document).ready(function () {
             setupLeftMenu();
 
+            drawBarchart('bar-chart');
   			setSidebarHeight();
             $('.datatable').dataTable();
             initmap();
@@ -56,6 +56,13 @@
         	map.centerAndZoom(point, 16);
         	// 初始化地图，设置中心点坐标和地图级别  
         }
+        function expend(divname){
+        	if($("#"+divname).height()==1){
+            	$("#"+divname).height("auto");
+        	}else{        		
+            	$("#"+divname).height("1px");
+        	}
+        }
     </script>
 </head>
 <body>
@@ -67,9 +74,9 @@
                   <div class="grid_6">
                 <ul class="nav main">
                 <li class="ic-home"><a href="index.html"><span>首页</span></a></li>
-                <li class="ic-jianceguanli"><a href="jianceheguanli.html"><span>监测与管理</span></a></li>
-                <li class="ic-xingzhixinxi"><a href="javascript:"><span>测绘信息</span></a></li>
-				<li class="ic-wenxianguanli"><a href="wenxianxinxi.html"><span>文档信息</span></a></li>
+                <li class="ic-jianceguanli"><a href="javascript:"><span>监测与管理</span></a></li>
+                <li class="ic-xingzhixinxi"><a href="cehuixinxi.html"><span>测绘信息</span></a></li>
+				<li class="ic-wenxianguanli"><a href="wendangguanli.html"><span>文档管理</span></a></li>
                 <li class="ic-shujuguanli"><a href="shujuguanli.html"><span>数据管理</span></a></li>
                 <li class="ic-xitongguanli"><a href="xitongguanli.html"><span>系统管理</span></a></li>
             </ul>
@@ -95,23 +102,47 @@
             <div class="box sidemenu">
                 <div class="block" id="section-menu">
                     <ul class="section menu">
-                        <li><a class="menuitem">原始影像</a>  </li>
-                        <li><a class="menuitem">原始点云</a> </li>
-                        <li><a class="menuitem">成果点云</a> </li>
-                        <li><a class="menuitem">成果模型</a> </li>
-                        <li><a class="menuitem">成果材质模型</a> </li>
-                        <li><a class="menuitem">成果正射影像</a> </li>
-                        <li><a class="menuitem">线划图</a> </li>
-                        <li><a class="menuitem">文字报告</a> </li>
+                        <li><a class="menuitem">常规检测</a>
+                            <ul class="submenu">
+                                <li><a href="jianceyuguanli/wenwushuliangtongji.html">文物数量统计</a> </li>
+                                <li><a>保存现状统计</a> </li>
+                                <li><a class="active">物理性能检测</a> </li>
+                                <li><a>病害信息</a> </li>
+                                <li><a>病害产物分析</a> </li>
+                            </ul>
+                        </li>
+                        <li><a class="menuitem">专项监测</a>
+                            <ul class="submenu">
+                                <li><a>结构变化监测</a> </li>
+                                <li><a>病害变化监测</a> </li>
+                            </ul>
+                        </li>
+                        <li><a class="menuitem">报警信息</a>  </li>
+                        <li><a class="menuitem">材质检测信息</a> </li>
+                        <li><a class="menuitem">管理和保护</a>
+                            <ul class="submenu">
+                                <li><a>日常巡检</a> </li>
+                                <li><a>保养维护</a> </li>
+                                <li><a>保护维修</a> </li>
+                                <li><a>借拨收存</a> </li>
+                                <li><a>损毁丢失</a> </li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </div>
         </div>
-        <div class="grid_10">
-            <div class="box round"><!-- style="height: 1px" -->
-            <h2>检索条件</h2>
+        <div class="grid_5">
+            <div class="box round">
+                <div class="block" id="container" style="height: 500px">
+                </div>
+            </div>
+        </div>
+        <div class="grid_5">
+            <div class="box round" style="height: 1px" id="jiansuotiaojian"><!-- style="height: 1px" -->
+            <h2 onclick="expend('jiansuotiaojian')">检索条件<img src="img/help.png" alt="help" title="点击可以折叠/展开检索条件" height="15px" width="15px"/></h2>
                 <div class="block" >
-                     <form>
+                    <form>
                     <table class="form">
                         <tr>
                             <td class="col1">
@@ -126,8 +157,16 @@
                             <td class="col2">
                                 <input type="text" id="grumble" />
                             </td>
+                        </tr>
+                        <tr>
                             <td class="col1">
-                                <label>所在区域</label>
+                                <label>主体</label>
+                            </td>
+                            <td class="col2">
+                                <input type="text" id="grumble" />
+                            </td>
+                            <td class="col1">
+                                <label>保存状况</label>
                             </td>
                             <td class="col2">
                                 <input type="text" id="grumble" />
@@ -141,13 +180,7 @@
                                 <input type="text" id="grumble" />
                             </td>
                             <td class="col1">
-                                <label>拍摄部位</label>
-                            </td>
-                            <td class="col2">
-                                <input type="text" id="grumble" />
-                            </td>
-                            <td class="col1">
-                                <label>拍摄时间范围</label>
+                                <label>病害分类</label>
                             </td>
                             <td class="col2">
                                 <input type="text" id="grumble" />
@@ -156,7 +189,6 @@
                         <tr><td colspan="4">
                         <button class="btn btn-blue">查询</button>
                         <button class="btn btn-blue">清除</button>
-                        <button class="btn btn-blue">上传</button>
                         </td></tr>
                         </table>
                         </form>
@@ -164,7 +196,14 @@
             </div>
         </div>
         
-        <div class="grid_10">
+        <div class="grid_5">
+            <div class="box round"><!-- style="height: 1px" -->
+            <h2>统计图</h2>
+                  <div id="bar-chart" style="height: 250px">
+                    </div>
+            </div>
+       </div>
+        <div class="grid_5" style="float: right;">
             <div class="box round">
             <h2>检索结果</h2>
                 <div class="block">
@@ -173,69 +212,34 @@
 						<tr>
 							<th>文物号</th>
 							<th>文物名称</th>
-							<th>文件名称</th>
-							<th>拍摄部位</th>
-							<th>影像预览</th>
-							<th>操作</th>
+							<th>材质</th>
+							<th>评估分级</th>
+							<th>评估时间</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr class="odd gradeX">
 							<td>故00000001</td>
 							<td>石狮</td>
-							<td>全景</td>
-							<td>原始影像-浏览级.jpeg</td>
-							<td><img src="#"></img></td>
-							<td class="center"><button>编辑</button><button>下载应用级文件</button></td>
+							<td>石质</td>
+							<td class="center">良好</td>
+							<td class="center">2014-09-21</td>
 						</tr>
-						<tr class="odd gradeX">
-							<td>故00000001</td>
+						<tr class="gradeA">
+							<td>故00000002</td>
 							<td>石狮</td>
-							<td>全景</td>
-							<td>原始影像-浏览级.jpeg</td>
-							<td><img></img></td>
-							<td class="center"><button>编辑</button><button>下载应用级文件</button></td>
+							<td>石质</td>
+							<td class="center">良好</td>
+							<td class="center">2014-09-21</td>
 						</tr>
-						<tr class="odd gradeX">
-							<td>故00000001</td>
+						<tr class="gradeB">
+							<td>故00000003</td>
 							<td>石狮</td>
-							<td>全景</td>
-							<td>原始影像-浏览级.jpeg</td>
-							<td><img></img></td>
-							<td class="center"><button>编辑</button><button>下载应用级文件</button></td>
+							<td>石质</td>
+							<td class="center">良好</td>
+							<td class="center">2014-09-21</td>
 						</tr>
-						<tr class="odd gradeX">
-							<td>故00000001</td>
-							<td>石狮</td>
-							<td>全景</td>
-							<td>原始影像-浏览级.jpeg</td>
-							<td><img></img></td>
-							<td class="center"><button>编辑</button><button>下载应用级文件</button></td>
-						</tr>
-						<tr class="odd gradeX">
-							<td>故00000001</td>
-							<td>石狮</td>
-							<td>全景</td>
-							<td>原始影像-浏览级.jpeg</td>
-							<td><img></img></td>
-							<td class="center"><button>编辑</button><button>下载应用级文件</button></td>
-						</tr>
-						<tr class="odd gradeX">
-							<td>故00000001</td>
-							<td>石狮</td>
-							<td>全景</td>
-							<td>原始影像-浏览级.jpeg</td>
-							<td><img></img></td>
-							<td class="center"><button>编辑</button><button>下载应用级文件</button></td>
-						</tr>
-						<tr class="odd gradeX">
-							<td>故00000001</td>
-							<td>石狮</td>
-							<td>全景</td>
-							<td>原始影像-浏览级.jpeg</td>
-							<td><img></img></td>
-							<td class="center"><button>编辑</button><button>下载应用级文件</button></td>
-						</tr>
+						
 					</tbody>
 				</table>
                 </div>
