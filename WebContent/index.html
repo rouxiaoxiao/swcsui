@@ -87,6 +87,10 @@
 //            setSidebarHeight();
             initmap();
             setupDialogBox('dialog', 'opener');
+            setupDialogBox('daibanlist', 'daiban');
+            setupDialogBox('baojinglist', 'baojing');
+            setupDialogBox('chulilist', 'chuli');
+
 
             /* $('#bhfl_select').multiselect({
              header: true,
@@ -147,10 +151,10 @@
             </div>
             <div class="floatright">
                 <div class="floatleft marginleft10">
-                    <div><b><font color="orange">待办<sub><i>2</i></sub></font></b></div>
+                    <div id="daiban"><b><font color="orange">待办<sub><i>2</i></sub></font></b></div>
                 </div>
                 <div class="floatleft marginleft10">
-                    <div><b><font color="red">报警<sub><i>2</i></sub></font></b></div>
+                    <div id="baojing"><b><font color="red">报警<sub><i>2</i></sub></font></b></div>
                 </div>
                 <div class="floatleft marginleft10">
                     <img src="img/img-profile.jpg" alt="Profile Pic"/></div>
@@ -271,8 +275,92 @@
                 </tr>
             </table>
         </form>
-
     </div>
 </div>
+<div style="width: 100%;height: 100%">
+    <div id="daibanlist" title="待办列表">
+        <form>
+            <table class="form">
+                <tr>
+                    <td><a>2019年日常巡检审核</a></td>
+                </tr>
+                <tr>
+                    <td><a>故XXX室外陈设材质检测信息录入审核</a></td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <button class="btn btn-blue">取消</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+<div style="width: 100%;height: 100%">
+    <div id="baojinglist" title="报警列表">
+        <form>
+            <table class="form">
+                <tr>
+                    <td><b>文保科技部XX室外陈设报警，XX号室外陈设发生移位</b></td>
+                    <td><button class="btn btn-green btn-small">已阅</button></td>
+                    <td><button class="btn btn-blue btn-small" id="chuli">处理</button></td>
+                </tr>
+                <tr>
+                    <td><b>文保科技部XX室外陈设报警，XX号室外陈设发生移位</b></td>
+                    <td><button class="btn btn-green btn-small">已阅</button></td>
+                    <td><button class="btn btn-blue btn-small" id="chuli">处理</button></td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <button class="btn btn-blue">取消</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+<div style="width: 100%;height: 100%">
+    <div id="chulilist" title="处理情况">
+        <form>
+            <table class="form">
+                <tr>
+                    <td class="col1">
+                        <label>处理方式：</label>
+                    </td>
+                    <td class="col2">
+                        <input type="text" id="grumble"/>
+                    </td>
+                    <td class="col1">
+                        <label>处理描述：</label>
+                    </td>
+                    <td class="col2">
+                        <input type="text" id="grumble"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col1">
+                        <label>处理人：</label>
+                    </td>
+                    <td class="col2">
+                        <input type="text" id="grumble"/>
+                    </td>
+                    <td class="col1">
+                        <label>处理时间：</label>
+                    </td>
+                    <td class="col2">
+                        <input type="text" id="grumble"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <button class="btn btn-blue">确认</button>
+                        <button class="btn btn-blue">取消</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+
 </body>
 </html>
