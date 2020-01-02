@@ -9,6 +9,10 @@
     <link rel="stylesheet" type="text/css" href="../css/layout.css" media="screen"/>
     <link rel="stylesheet" type="text/css" href="../css/nav.css" media="screen"/>
     <link href="../css/table/demo_page.css" rel="stylesheet" type="text/css"/>
+    <link href="../css/fancy-button/fancy-button.css" rel="stylesheet" type="text/css"/>
+    <link href="../css/ui.multiselect.css" rel="stylesheet" type="text/css"/>
+    <!--Jquery UI CSS-->
+    <link href="../css/themes/base/jquery.ui.all.css" rel="stylesheet" type="text/css"/>
     <!--[if IE 6]>
     <link rel="stylesheet" type="text/css" href="../css/ie6.css" media="screen"/><![endif]-->
     <!--[if IE 7]>
@@ -34,6 +38,11 @@
     <script language="javascript" type="text/javascript" src="../js/jqPlot/plugins/jqplot.pointLabels.min.js"></script>
     <script src="../js/jquery-ui/jquery.ui.sortable.min.js" type="text/javascript"></script>
     <script src="../js/table/jquery.dataTables.min.js" type="text/javascript"></script>
+    <script src="../js/jquery-ui/jquery.ui.dialog.min.js" type="text/javascript"></script>
+    <script src="../js/jquery-ui/jquery.effects.core.min.js" type="text/javascript"></script>
+    <script src="../js/jquery-ui/jquery.effects.blind.min.js" type="text/javascript"></script>
+    <script src="../js/jquery-ui/jquery.effects.explode.min.js" type="text/javascript"></script>
+    <script src="../js/ui.multiselect.js" type="text/javascript"></script>
     <!-- END: load jqplot -->
     <script type="text/javascript" src="js/table/table.js"></script>
     <script src="../js/setup.js" type="text/javascript"></script>
@@ -43,14 +52,37 @@
     <script type="text/javascript">
 
         $(document).ready(function () {
-            setupLeftMenu();
-            var s1 = [815, 805, 800];
-            ticks = ['石质', '金属', '其他'];
-            drawBarchart('bar-chart', [s1], ticks);
-            setSidebarHeight();
-            $('.datatable').dataTable();
+            $('.datatable').dataTable({
+                "bPaginate": true, //翻页功能
+                "bLengthChange": false, //改变每页显示数据数量
+                "bFilter": false, //过滤功能
+                "bSort": true, //排序功能
+                "bInfo": true,//页脚信息
+                "bAutoWidth": true,//自动宽度
+                //"sDom": '<"top"<"clear">>rt<"bottom"lip<"clear">>'
+            });
             initmap();
+            setupDialogBox('dialog', 'opener');
 
+            /* $('#bhfl_select').multiselect({
+             header: true,
+             height: 175,
+             minWidth: 225,
+             classes: '',
+             checkAllText: '选中全部',
+             uncheckAllText: '取消全选',
+             noneSelectedText: '请勾选',
+             selectedText: '# 选中',
+             selectedList: 5,
+             show: null,
+             hide: null,
+             autoOpen: false,
+             multiple: true,
+             position: {},
+             appendTo: "body",
+             menuWidth:null
+             });
+             */
         });
 
         function initmap() {
@@ -68,6 +100,9 @@
                 $("#" + divname).height("1px");
             }
         }
+        function showExpendSelect() {
+
+        }
     </script>
 </head>
 <body>
@@ -78,10 +113,10 @@
                 <img src="../img/logo.png" alt="Logo"/></div>
             <div class="grid_6">
                 <ul class="nav main">
-                    <li class="ic-home"><a href="../index.html"><span>首页</span></a></li>
-                    <li class="ic-jianceguanli"><a href="javascript:"><span>监测与管理</span></a></li>
-                    <li class="ic-xingzhixinxi"><a href="../cehuixinxi.html"><span>测绘信息</span></a></li>
-                    <li class="ic-wenxianguanli"><a href="../wendangguanli.html"><span>文档管理</span></a></li>
+                    <li class="ic-home"><a href="javascript:"><span>首页</span></a></li>
+                    <li class="ic-jianceguanli"><a href="../jianceheguanli.html"><span>监测与管理</span></a></li>
+                    <li class="ic-xingzhixinxi"><a href="xingzhixinxi.html"><span>测绘信息</span></a></li>
+                    <li class="ic-wenxianguanli"><a href="wenxianxinxi.html"><span>文档信息</span></a></li>
                     <li class="ic-shujuguanli"><a href="../shujuguanli.html"><span>数据管理</span></a></li>
                     <li class="ic-xitongguanli"><a href="../xitongguanli.html"><span>系统管理</span></a></li>
                 </ul>
@@ -103,47 +138,19 @@
     <div class="clear">
     </div>
 
-    <div class="grid_2">
-        <div class="box sidemenu">
-            <div class="block" id="section-menu">
-                <ul class="section menu">
-                    <li><a class="menuitem">常规检测</a>
-                        <ul class="submenu">
-                            <li><a href="wenwushuliangtongji.html">文物数量统计</a></li>
-                            <li><a href="baocunxianzhuangtongji.html">保存现状统计</a></li>
-                            <li><a href="wulixingnengjiance.html">物理性能检测</a></li>
-                            <li><a href="binghaixinxi.html">病害信息</a></li>
-                            <li><a href="binghaichanwufenxi.html">病害产物分析</a></li>
-                            <li><a href="jiegoubianhuajiance.html">结构变化监测</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="baojingxinxi.html">报警信息</a></li>
-                    <li><a href="caizhijiancexinxi.html">材质检测信息</a></li>
-                    <li><a class="menuitem">管理和保护</a>
-                        <ul class="submenu">
-                            <li><a href="richangxuncha.html">日常巡检</a></li>
-                            <li><a href="baoyangweihu.html">保养维护</a></li>
-                            <li><a href="baohuweixiu.html">保护维修</a></li>
-                            <li><a href="jieboshoucun.html">借拨收存</a></li>
-                            <li><a href="sunhuidiushi.html">损毁丢失</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
     <div class="grid_5">
         <div class="box round">
             <div class="block" id="container" style="height: 500px">
             </div>
         </div>
     </div>
-    <div class="grid_5">
-        <div class="box round" style="height: 1px" id="jiansuotiaojian"><!-- style="height: 1px" -->
+    <div class="grid_7">
+        <div class="box round" id="jiansuotiaojian">
             <h2 onclick="expend('jiansuotiaojian')">检索条件
                 <img src="../img/help.png" alt="help" title="点击可以折叠/展开检索条件" height="15px" width="15px"/>
                 <img src="../img/expendselect.png" alt="help" title="点击显示扩展检索条件" height="15px" width="15px"
-                     style="float: right;" id="opener"/></h2>
+                     style="float: right;" id="opener"/>
+            </h2>
             <div class="block">
                 <form>
                     <table class="form">
@@ -152,7 +159,7 @@
                                 <label>文物号</label>
                             </td>
                             <td class="col2">
-                                <input type="text" id="grumble"/>
+                                <input type="text"/>
                             </td>
                             <td class="col1">
                                 <label>文物名称</label>
@@ -166,13 +173,22 @@
                                 <label>主体</label>
                             </td>
                             <td class="col2">
-                                <input type="text" id="grumble"/>
+                                <select class="small">
+                                    <option>文物</option>
+                                    <option>附件</option>
+                                    <option>文物及附件</option>
+                                </select>
                             </td>
                             <td class="col1">
                                 <label>保存状况</label>
                             </td>
                             <td class="col2">
-                                <input type="text" id="grumble"/>
+                                <select class="small">
+                                    <option>良好</option>
+                                    <option>较好</option>
+                                    <option>一般</option>
+                                    <option>较差</option>
+                                </select>
                             </td>
                         </tr>
                         <tr>
@@ -180,13 +196,21 @@
                                 <label>文物材质</label>
                             </td>
                             <td class="col2">
-                                <input type="text" id="grumble"/>
+                                <select class="small">
+                                    <option>全部</option>
+                                    <option>石质</option>
+                                    <option>金属</option>
+                                    <option>其他</option>
+                                </select>
                             </td>
                             <td class="col1">
                                 <label>病害分类</label>
                             </td>
                             <td class="col2">
-                                <input type="text" id="grumble"/>
+                                <select id="bhfl_select" class="small">
+                                    <option>腐蚀</option>
+                                    <option>开裂</option>
+                                </select>
                             </td>
                         </tr>
                         <tr>
@@ -201,14 +225,7 @@
         </div>
     </div>
 
-    <div class="grid_5">
-        <div class="box round"><!-- style="height: 1px" -->
-            <h2>统计图</h2>
-            <div id="bar-chart" style="height: 250px">
-            </div>
-        </div>
-    </div>
-    <div class="grid_5" style="float: right;">
+    <div class="grid_7">
         <div class="box round">
             <h2>检索结果</h2>
             <div class="block">
@@ -244,7 +261,97 @@
                         <td class="center">良好</td>
                         <td class="center">2014-09-21</td>
                     </tr>
-
+                    <tr class="gradeB">
+                        <td>故00000003</td>
+                        <td>石狮</td>
+                        <td>石质</td>
+                        <td class="center">良好</td>
+                        <td class="center">2014-09-21</td>
+                    </tr>
+                    <tr class="gradeB">
+                        <td>故00000003</td>
+                        <td>石狮</td>
+                        <td>石质</td>
+                        <td class="center">良好</td>
+                        <td class="center">2014-09-21</td>
+                    </tr>
+                    <tr class="gradeB">
+                        <td>故00000003</td>
+                        <td>石狮</td>
+                        <td>石质</td>
+                        <td class="center">良好</td>
+                        <td class="center">2014-09-21</td>
+                    </tr>
+                    <tr class="gradeB">
+                        <td>故00000003</td>
+                        <td>石狮</td>
+                        <td>石质</td>
+                        <td class="center">良好</td>
+                        <td class="center">2014-09-21</td>
+                    </tr>
+                    <tr class="gradeB">
+                        <td>故00000003</td>
+                        <td>石狮</td>
+                        <td>石质</td>
+                        <td class="center">良好</td>
+                        <td class="center">2014-09-21</td>
+                    </tr>
+                    <tr class="gradeB">
+                        <td>故00000003</td>
+                        <td>石狮</td>
+                        <td>石质</td>
+                        <td class="center">良好</td>
+                        <td class="center">2014-09-21</td>
+                    </tr>
+                    <tr class="gradeB">
+                        <td>故00000003</td>
+                        <td>石狮</td>
+                        <td>石质</td>
+                        <td class="center">良好</td>
+                        <td class="center">2014-09-21</td>
+                    </tr>
+                    <tr class="gradeB">
+                        <td>故00000003</td>
+                        <td>石狮</td>
+                        <td>石质</td>
+                        <td class="center">良好</td>
+                        <td class="center">2014-09-21</td>
+                    </tr>
+                    <tr class="gradeB">
+                        <td>故00000003</td>
+                        <td>石狮</td>
+                        <td>石质</td>
+                        <td class="center">良好</td>
+                        <td class="center">2014-09-21</td>
+                    </tr>
+                    <tr class="gradeB">
+                        <td>故00000003</td>
+                        <td>石狮</td>
+                        <td>石质</td>
+                        <td class="center">良好</td>
+                        <td class="center">2014-09-21</td>
+                    </tr>
+                    <tr class="gradeB">
+                        <td>故00000003</td>
+                        <td>石狮</td>
+                        <td>石质</td>
+                        <td class="center">良好</td>
+                        <td class="center">2014-09-21</td>
+                    </tr>
+                    <tr class="gradeB">
+                        <td>故00000003</td>
+                        <td>石狮</td>
+                        <td>石质</td>
+                        <td class="center">良好</td>
+                        <td class="center">2014-09-21</td>
+                    </tr>
+                    <tr class="gradeB">
+                        <td>故00000003</td>
+                        <td>石狮</td>
+                        <td>石质</td>
+                        <td class="center">良好</td>
+                        <td class="center">2014-09-21</td>
+                    </tr>
                     </tbody>
                 </table>
             </div>

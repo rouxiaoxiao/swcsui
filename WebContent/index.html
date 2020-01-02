@@ -70,11 +70,18 @@
 //            drawPointsChart('points-chart');
 //            drawDonutChart('donuts-chart');
 //            drawDonutChart('donuts-chart2');
+
             drawPieChart('pie-chart');
             drawPieChart('pie-chart2');
-            drawBarchart('bar-chart');
-            drawBarchart('bar-chart2');
-            drawBarchart('bar-chart3');
+            var s1 = [815, 805, 800];
+            ticks = ['石质', '金属', '其他'];
+            drawBarchart('bar-chart', [s1], ticks);
+            var s2 = [815, 805, 800, 802, 809];
+            ticks2 = ['水迹', '局部锈蚀', '表面硬结物', '点腐蚀', '其他'];
+            drawBarchart('bar-chart2', [s2], ticks2);
+            var s3 = [815, 805, 800, 802, 809];
+            ticks3 = ['表面粉化脱落', '水锈结壳', '风化裂隙', '残缺', '其他'];
+            drawBarchart('bar-chart3', [s3], ticks3);
 
 //            drawBubbleChart('bubble-chart');
 //            setSidebarHeight();
@@ -140,6 +147,7 @@
             </div>
             <div class="floatright">
                 <div class="floatleft">
+
                     <img src="img/img-profile.jpg" alt="Profile Pic"/></div>
                 <div class="floatleft marginleft10">
                     <ul class="inline-ul floatleft">
@@ -160,6 +168,21 @@
             <div class="block" id="container" style="height: 850px">
             </div>
         </div>
+    </div>
+    <div class="grid_6">
+        <label style="color: white">文物材质</label>
+        <select id="select" name="select">
+            <option value="1">全部</option>
+        </select>
+        <select id="select" name="select">
+            <option value="1">石质</option>
+            <option value="1">金属</option>
+            <option value="1">其他</option>
+        </select>
+        <select id="select" name="select">
+            <option value="1">石座</option>
+            <option value="1">水池</option>
+        </select>
     </div>
     <div class="grid_6">
         <div class="box round first">

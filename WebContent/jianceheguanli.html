@@ -41,7 +41,9 @@
         $(document).ready(function () {
             setupLeftMenu();
 
-            drawBarchart('bar-chart');
+            var s1 = [815, 805, 800];
+            ticks = ['石质', '金属', '其他'];
+            drawBarchart('bar-chart', [s1], ticks);
   			setSidebarHeight();
             $('.datatable').dataTable();
             initmap();
@@ -109,12 +111,7 @@
                                 <li><a href="jianceyuguanli/wulixingnengjiance.html">物理性能检测</a> </li>
                                 <li><a href="jianceyuguanli/binghaixinxi.html">病害信息</a> </li>
                                 <li><a href="jianceyuguanli/binghaichanwufenxi.html">病害产物分析</a> </li>
-                            </ul>
-                        </li>
-                        <li><a class="menuitem">专项监测</a>
-                            <ul class="submenu">
                                 <li><a href="jianceyuguanli/jiegoubianhuajiance.html">结构变化监测</a> </li>
-                                <li><a href="jianceyuguanli/binghaibianhuajiance.html">病害变化监测</a> </li>
                             </ul>
                         </li>
                         <li><a href="jianceyuguanli/baojingxinxi.html">报警信息</a>  </li>

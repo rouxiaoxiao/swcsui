@@ -41,7 +41,9 @@
         $(document).ready(function () {
             setupLeftMenu();
 
-            drawBarchart('bar-chart');
+            var s1 = [815, 805, 800];
+            ticks = ['石质', '金属', '其他'];
+            drawBarchart('bar-chart', [s1], ticks);
   			setSidebarHeight();
             $('.datatable').dataTable();
             initmap();

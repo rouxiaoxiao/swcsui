@@ -45,7 +45,9 @@
 
             drawPointsChart('points-chart');
             drawDonutChart('donuts-chart');
-            drawBarchart('bar-chart');
+            var s1 = [815, 805, 800];
+            ticks = ['石质', '金属', '其他'];
+            drawBarchart('bar-chart', [s1], ticks);
             drawBubbleChart('bubble-chart');
             setupLeftMenu();
             setSidebarHeight();

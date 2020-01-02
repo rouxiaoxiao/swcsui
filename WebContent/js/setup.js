@@ -7,7 +7,7 @@ var height = $(document).height();
     height -= $('#site_info').outerHeight();
 	height-=1;
 	//salert(height);
-    $('.sidemenu').css('height', height);					   
+    $('.sidemenu').css('height', height);
 						},100);
 }
 
@@ -121,8 +121,8 @@ function drawPointsChart(containerElement) {
 //draw pie chart
 function drawPieChart(containerElement) {
     var data = [
-    ['Heavy Industry', 12], ['Retail', 9], ['Light Industry', 14],
-    ['Out of home', 16], ['Commuting', 7], ['Orientation', 9]
+    ['很差', 12], ['较差', 9], ['一半', 14],
+    ['较好', 16]
   ];
     var plot1 = jQuery.jqplot(containerElement, [data],
     {
@@ -163,14 +163,14 @@ function drawDonutChart(containerElement) {
 }
 
 //draw bar chart
-function drawBarchart(containerElement) {
-    var s1 = [815, 815];
+function drawBarchart(containerElement,data,ticks) {
+    var s1 = [815, 805,800];
     var s2 = [610, 610];
     // Can specify a custom tick Array.
     // Ticks should match up one for each y value (category) in the series.
-    var ticks = ['物理性能监测', '病变产物分析'];
+    // var ticks = ['石质', '金属','其他'];
 
-    var plot1 = $.jqplot(containerElement, [s1, s2], {
+    var plot1 = $.jqplot(containerElement, data, {
         // The "seriesDefaults" option is an options object that will
         // be applied to all series in the chart.
         seriesDefaults: {
@@ -184,8 +184,8 @@ function drawBarchart(containerElement) {
         // option on the series option.  Here a series option object
         // is specified for each series.
         series: [
-            { label: '文物' },
-            { label: '附件' }
+            // { label: '文物' },
+            { label: 'xx' }
         ],
         Axis: {
         	min :0,
@@ -515,6 +515,6 @@ function setupLeftMenu() {
         })
         .find("a.menuitem:first").addClass("current")
         .next().addClass("current");
-		
+
 		$('#section-menu .submenu').css('height','auto');
 }
