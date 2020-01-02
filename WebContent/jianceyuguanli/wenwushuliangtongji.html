@@ -9,10 +9,16 @@
     <link rel="stylesheet" type="text/css" href="../css/layout.css" media="screen"/>
     <link rel="stylesheet" type="text/css" href="../css/nav.css" media="screen"/>
     <link href="../css/table/demo_page.css" rel="stylesheet" type="text/css"/>
+    <link href="../css/fancy-button/fancy-button.css" rel="stylesheet" type="text/css"/>
+    <link href="../css/ui.multiselect.css" rel="stylesheet" type="text/css"/>
+    <!--Jquery UI CSS-->
+    <!--此条css添加后扩展条件可用，但左侧导航栏样式受影响-->
+    <link href="../css/themes/base/jquery.ui.all.css" rel="stylesheet" type="text/css"/>
     <!--[if IE 6]>
     <link rel="stylesheet" type="text/css" href="../css/ie6.css" media="screen"/><![endif]-->
     <!--[if IE 7]>
     <link rel="stylesheet" type="text/css" href="../css/ie.css" media="screen"/><![endif]-->
+    <link href="css/fancy-button/fancy-button.css" rel="stylesheet" type="text/css"/>
     <!-- BEGIN: load jquery -->
     <script src="../js/jquery-1.6.4.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="../js/jquery-ui/jquery.ui.core.min.js"></script>
@@ -34,12 +40,19 @@
     <script language="javascript" type="text/javascript" src="../js/jqPlot/plugins/jqplot.pointLabels.min.js"></script>
     <script src="../js/jquery-ui/jquery.ui.sortable.min.js" type="text/javascript"></script>
     <script src="../js/table/jquery.dataTables.min.js" type="text/javascript"></script>
+    <script src="../js/jquery-ui/jquery.ui.dialog.min.js" type="text/javascript"></script>
+    <script src="../js/jquery-ui/jquery.effects.core.min.js" type="text/javascript"></script>
+    <script src="../js/jquery-ui/jquery.effects.blind.min.js" type="text/javascript"></script>
+    <script src="../js/jquery-ui/jquery.effects.explode.min.js" type="text/javascript"></script>
+    <script src="../js/ui.multiselect.js" type="text/javascript"></script>
     <!-- END: load jqplot -->
     <script type="text/javascript" src="js/table/table.js"></script>
     <script src="../js/setup.js" type="text/javascript"></script>
+
     <script type="text/javascript" src="http://api.map.baidu.com/api?v=3.0&ak=HbfM1ta0T32ZErL8Wks0vjRRpbtsB0AL">
         //v3.0版本的引用方式：src="http://api.map.baidu.com/api?v=3.0&ak=您的密钥"
     </script>
+    <!--<script src="../js/setup.js" type="text/javascript"></script>-->
     <script type="text/javascript">
 
         $(document).ready(function () {
@@ -48,9 +61,18 @@
             ticks = ['石质', '金属', '其他'];
             drawBarchart('bar-chart', [s1], ticks);
             setSidebarHeight();
-            $('.datatable').dataTable();
+            $('.datatable').dataTable({
+//                "bPaginate": true, //翻页功能
+//                "bLengthChange": false, //改变每页显示数据数量
+//                "bFilter": false, //过滤功能
+//                "bSort": true, //排序功能
+//                "bInfo": true,//页脚信息
+//                "bAutoWidth": true,//自动宽度
+                //"sDom": '<"top"<"clear">>rt<"bottom"lip<"clear">>'
+            });
             initmap();
-
+            //扩展查询条件
+            setupDialogBox('dialog', 'opener');
         });
 
         function initmap() {
@@ -67,6 +89,9 @@
             } else {
                 $("#" + divname).height("1px");
             }
+        }
+        function showExpendSelect() {
+
         }
     </script>
 </head>
@@ -142,7 +167,7 @@
         <div class="box round" style="height: 1px" id="jiansuotiaojian"><!-- style="height: 1px" -->
             <h2 onclick="expend('jiansuotiaojian')">检索条件
                 <img src="../img/help.png" alt="help" title="点击可以折叠/展开检索条件" height="15px" width="15px"/>
-                <img src="../img/expendselect.png" alt="help" title="点击显示扩展检索条件" height="15px" width="15px"
+                <img src="../img/expendselect.png" alt="help" title="点击显示自定义检索条件" height="15px" width="15px"
                      style="float: right;" id="opener"/></h2>
             <div class="block">
                 <form>
@@ -256,37 +281,16 @@
 <div class="clear">
 </div>
 <div style="width: 100%;height: 100%">
-    <div id="dialog" title="扩展检索条件">
+    <div id="dialog" title="自定义检索条件">
         <form>
             <table class="form">
-                <tr>
-                    <td class="col1">
-                        <label>参考号：</label>
-                    </td>
-                    <td class="col2">
-                        <input type="text" id="grumble"/>
-                    </td>
-                    <td class="col1">
-                        <label>文物时代：</label>
-                    </td>
-                    <td class="col2">
-                        <input type="text" id="grumble"/>
-                    </td>
+                <tr><input type="checkbox"/>参考号
+                    <input type="checkbox"/>文物时代
+                    <input type="checkbox"/>文物时代
+                    <input type="checkbox"/>参考号
+                    <input type="checkbox"/>文物时代
                 </tr>
-                <tr>
-                    <td class="col1">
-                        <label>参考号：</label>
-                    </td>
-                    <td class="col2">
-                        <input type="text" id="grumble"/>
-                    </td>
-                    <td class="col1">
-                        <label>文物时代：</label>
-                    </td>
-                    <td class="col2">
-                        <input type="text" id="grumble"/>
-                    </td>
-                </tr>
+
                 <tr>
                     <td colspan="4">
                         <button class="btn btn-blue">确定</button>

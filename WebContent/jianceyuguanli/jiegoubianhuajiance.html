@@ -1,18 +1,24 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <title>故宫世界文化遗产监测-室外陈设监测</title>
-    <link rel="stylesheet" type="text/css" href="../css/reset.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="../css/text.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="../css/grid.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="../css/layout.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="../css/nav.css" media="screen" />
-    <link href="../css/table/demo_page.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../css/reset.css" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="../css/text.css" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="../css/grid.css" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="../css/layout.css" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="../css/nav.css" media="screen"/>
+    <link href="../css/table/demo_page.css" rel="stylesheet" type="text/css"/>
+    <link href="../css/fancy-button/fancy-button.css" rel="stylesheet" type="text/css"/>
+    <link href="../css/ui.multiselect.css" rel="stylesheet" type="text/css"/>
+    <!--Jquery UI CSS-->
+    <!--此条css添加后扩展条件可用，但左侧导航栏样式受影响-->
+    <link href="../css/themes/base/jquery.ui.all.css" rel="stylesheet" type="text/css"/>
     <!--[if IE 6]>
     <link rel="stylesheet" type="text/css" href="../css/ie6.css" media="screen"/><![endif]-->
     <!--[if IE 7]>
     <link rel="stylesheet" type="text/css" href="../css/ie.css" media="screen"/><![endif]-->
+    <link href="css/fancy-button/fancy-button.css" rel="stylesheet" type="text/css"/>
     <!-- BEGIN: load jquery -->
     <script src="../js/jquery-1.6.4.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="../js/jquery-ui/jquery.ui.core.min.js"></script>
@@ -22,140 +28,163 @@
     <script src="../js/jquery-ui/jquery.effects.slide.min.js" type="text/javascript"></script>
     <!-- END: load jquery -->
     <!-- BEGIN: load jqplot -->
-    <link rel="stylesheet" type="text/css" href="../css/jquery.jqplot.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/jquery.jqplot.min.css"/>
     <!--[if lt IE 9]>
     <script language="javascript" type="text/javascript" src="../js/jqPlot/excanvas.min.js"></script><![endif]-->
     <script language="javascript" type="text/javascript" src="../js/jqPlot/jquery.jqplot.min.js"></script>
     <script language="javascript" type="text/javascript" src="../js/jqPlot/plugins/jqplot.barRenderer.min.js"></script>
     <script language="javascript" type="text/javascript" src="../js/jqPlot/plugins/jqplot.pieRenderer.min.js"></script>
-    <script language="javascript" type="text/javascript" src="../js/jqPlot/plugins/jqplot.categoryAxisRenderer.min.js"></script>
+    <script language="javascript" type="text/javascript"
+            src="../js/jqPlot/plugins/jqplot.categoryAxisRenderer.min.js"></script>
     <script language="javascript" type="text/javascript" src="../js/jqPlot/plugins/jqplot.highlighter.min.js"></script>
     <script language="javascript" type="text/javascript" src="../js/jqPlot/plugins/jqplot.pointLabels.min.js"></script>
     <script src="../js/jquery-ui/jquery.ui.sortable.min.js" type="text/javascript"></script>
     <script src="../js/table/jquery.dataTables.min.js" type="text/javascript"></script>
+    <script src="../js/jquery-ui/jquery.ui.dialog.min.js" type="text/javascript"></script>
+    <script src="../js/jquery-ui/jquery.effects.core.min.js" type="text/javascript"></script>
+    <script src="../js/jquery-ui/jquery.effects.blind.min.js" type="text/javascript"></script>
+    <script src="../js/jquery-ui/jquery.effects.explode.min.js" type="text/javascript"></script>
+    <script src="../js/ui.multiselect.js" type="text/javascript"></script>
     <!-- END: load jqplot -->
     <script type="text/javascript" src="js/table/table.js"></script>
     <script src="../js/setup.js" type="text/javascript"></script>
-<script type="text/javascript" src="http://api.map.baidu.com/api?v=3.0&ak=HbfM1ta0T32ZErL8Wks0vjRRpbtsB0AL">
-//v3.0版本的引用方式：src="http://api.map.baidu.com/api?v=3.0&ak=您的密钥"
-</script>
+
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=3.0&ak=HbfM1ta0T32ZErL8Wks0vjRRpbtsB0AL">
+        //v3.0版本的引用方式：src="http://api.map.baidu.com/api?v=3.0&ak=您的密钥"
+    </script>
+    <!--<script src="../js/setup.js" type="text/javascript"></script>-->
     <script type="text/javascript">
 
         $(document).ready(function () {
             setupLeftMenu();
-
             var s1 = [815, 805, 800];
             ticks = ['石质', '金属', '其他'];
             drawBarchart('bar-chart', [s1], ticks);
-  			setSidebarHeight();
-            $('.datatable').dataTable();
+            setSidebarHeight();
+            $('.datatable').dataTable({
+//                "bPaginate": true, //翻页功能
+//                "bLengthChange": false, //改变每页显示数据数量
+//                "bFilter": false, //过滤功能
+//                "bSort": true, //排序功能
+//                "bInfo": true,//页脚信息
+//                "bAutoWidth": true,//自动宽度
+                //"sDom": '<"top"<"clear">>rt<"bottom"lip<"clear">>'
+            });
             initmap();
-
+            //扩展查询条件
+            setupDialogBox('dialog', 'opener');
         });
 
-        function initmap(){
-        	var map = new BMap.Map("container");
-        	// 创建地图实例  
-        	var point = new BMap.Point(116.404, 39.924);
-        	// 创建点坐标  
-        	map.centerAndZoom(point, 16);
-        	// 初始化地图，设置中心点坐标和地图级别  
+        function initmap() {
+            var map = new BMap.Map("container");
+            // 创建地图实例
+            var point = new BMap.Point(116.404, 39.924);
+            // 创建点坐标
+            map.centerAndZoom(point, 16);
+            // 初始化地图，设置中心点坐标和地图级别
         }
-        function expend(divname){
-        	if($("#"+divname).height()==1){
-            	$("#"+divname).height("auto");
-        	}else{        		
-            	$("#"+divname).height("1px");
-        	}
+        function expend(divname) {
+            if ($("#" + divname).height() == 1) {
+                $("#" + divname).height("auto");
+            } else {
+                $("#" + divname).height("1px");
+            }
+        }
+        function showExpendSelect() {
+
         }
     </script>
 </head>
 <body>
-    <div class="container_12">
-        <div class="grid_12 header-repeat">
-            <div id="branding">
-                <div class="floatleft">
-                    <img src="../img/logo.png" alt="Logo" /></div>
-                  <div class="grid_6">
+<div class="container_12">
+    <div class="grid_12 header-repeat">
+        <div id="branding">
+            <div class="floatleft">
+                <img src="../img/logo.png" alt="Logo"/></div>
+            <div class="grid_6">
                 <ul class="nav main">
-                <li class="ic-home"><a href="../index.html"><span>首页</span></a></li>
-                <li class="ic-jianceguanli"><a href="javascript:"><span>监测与管理</span></a></li>
-                <li class="ic-xingzhixinxi"><a href="../cehuixinxi.html"><span>测绘信息</span></a></li>
-				<li class="ic-wenxianguanli"><a href="../wendangguanli.html"><span>文档管理</span></a></li>
-                <li class="ic-shujuguanli"><a href="../shujuguanli.html"><span>数据管理</span></a></li>
-                <li class="ic-xitongguanli"><a href="../xitongguanli.html"><span>系统管理</span></a></li>
-            </ul>
-        </div>  
-                <div class="floatright">
-                    <div class="floatleft">
-                        <img src="../img/img-profile.jpg" alt="Profile Pic" /></div>
-                    <div class="floatleft marginleft10">
-                        <ul class="inline-ul floatleft">
-                            <li>资料信息部 张可</li>
-                            <li><a href="#">退出</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="clear">
-                </div>
+                    <li class="ic-home"><a href="../index.html"><span>首页</span></a></li>
+                    <li class="ic-jianceguanli"><a href="javascript:"><span>监测与管理</span></a></li>
+                    <li class="ic-xingzhixinxi"><a href="../cehuixinxi.html"><span>测绘信息</span></a></li>
+                    <li class="ic-wenxianguanli"><a href="../wendangguanli.html"><span>文档管理</span></a></li>
+                    <li class="ic-shujuguanli"><a href="../shujuguanli.html"><span>数据管理</span></a></li>
+                    <li class="ic-xitongguanli"><a href="../xitongguanli.html"><span>系统管理</span></a></li>
+                </ul>
             </div>
-        </div>
-       <div class="clear">
-        </div>
-
-        <div class="grid_2">
-            <div class="box sidemenu">
-                <div class="block" id="section-menu">
-                    <ul class="section menu">
-                        <li><a class="menuitem">常规检测</a>
-                            <ul class="submenu">
-                                <li><a href="wenwushuliangtongji.html">文物数量统计</a></li>
-                                <li><a href="baocunxianzhuangtongji.html">保存现状统计</a></li>
-                                <li><a href="wulixingnengjiance.html">物理性能检测</a></li>
-                                <li><a href="binghaixinxi.html">病害信息</a></li>
-                                <li><a href="binghaichanwufenxi.html">病害产物分析</a></li>
-                                <li><a href="jiegoubianhuajiance.html">结构变化监测</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="baojingxinxi.html">报警信息</a>  </li>
-                        <li><a href="caizhijiancexinxi.html">材质检测信息</a> </li>
-                        <li><a class="menuitem">管理和保护</a>
-                            <ul class="submenu">
-                                <li><a href="richangxuncha.html">日常巡检</a> </li>
-                                <li><a href="baoyangweihu.html">保养维护</a> </li>
-                                <li><a href="baohuweixiu.html">保护维修</a> </li>
-                                <li><a href="jieboshoucun.html">借拨收存</a> </li>
-                                <li><a href="sunhuidiushi.html">损毁丢失</a> </li>
-                            </ul>
-                        </li>
+            <div class="floatright">
+                <div class="floatleft">
+                    <img src="../img/img-profile.jpg" alt="Profile Pic"/></div>
+                <div class="floatleft marginleft10">
+                    <ul class="inline-ul floatleft">
+                        <li>资料信息部 张可</li>
+                        <li><a href="#">退出</a></li>
                     </ul>
                 </div>
             </div>
-        </div>
-        <div class="grid_5">
-            <div class="box round">
-                <div class="block" id="container" style="height: 500px">
-                </div>
+            <div class="clear">
             </div>
         </div>
-        <div class="grid_5">
-            <div class="box round" style="height: 1px" id="jiansuotiaojian"><!-- style="height: 1px" -->
-            <h2 onclick="expend('jiansuotiaojian')">检索条件<img src="../img/help.png" alt="help" title="点击可以折叠/展开检索条件" height="15px" width="15px"/></h2>
-                <div class="block" >
-                    <form>
+    </div>
+    <div class="clear">
+    </div>
+
+    <div class="grid_2">
+        <div class="box sidemenu">
+            <div class="block" id="section-menu">
+                <ul class="section menu">
+                    <li><a class="menuitem">常规检测</a>
+                        <ul class="submenu">
+                            <li><a href="wenwushuliangtongji.html">文物数量统计</a></li>
+                            <li><a href="baocunxianzhuangtongji.html">保存现状统计</a></li>
+                            <li><a href="wulixingnengjiance.html">物理性能检测</a></li>
+                            <li><a href="binghaixinxi.html">病害信息</a></li>
+                            <li><a href="binghaichanwufenxi.html">病害产物分析</a></li>
+                            <li><a href="jiegoubianhuajiance.html">结构变化监测</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="baojingxinxi.html">报警信息</a></li>
+                    <li><a href="caizhijiancexinxi.html">材质检测信息</a></li>
+                    <li><a class="menuitem">管理和保护</a>
+                        <ul class="submenu">
+                            <li><a href="richangxuncha.html">日常巡检</a></li>
+                            <li><a href="baoyangweihu.html">保养维护</a></li>
+                            <li><a href="baohuweixiu.html">保护维修</a></li>
+                            <li><a href="jieboshoucun.html">借拨收存</a></li>
+                            <li><a href="sunhuidiushi.html">损毁丢失</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="grid_5">
+        <div class="box round">
+            <div class="block" id="container" style="height: 500px">
+            </div>
+        </div>
+    </div>
+    <div class="grid_5">
+        <div class="box round" style="height: 1px" id="jiansuotiaojian"><!-- style="height: 1px" -->
+            <h2 onclick="expend('jiansuotiaojian')">检索条件
+                <img src="../img/help.png" alt="help" title="点击可以折叠/展开检索条件"
+                     height="15px" width="15px"/>
+                <img src="../img/expendselect.png" alt="help" title="点击显示自定义检索条件" height="15px" width="15px"
+                     style="float: right;" id="opener"/></h2>
+            <div class="block">
+                <form>
                     <table class="form">
                         <tr>
                             <td class="col1">
                                 <label>文物号</label>
                             </td>
                             <td class="col2">
-                                <input type="text" id="grumble" />
+                                <input type="text" id="grumble"/>
                             </td>
                             <td class="col1">
                                 <label>文物名称</label>
                             </td>
                             <td class="col2">
-                                <input type="text" id="grumble" />
+                                <input type="text" id="grumble"/>
                             </td>
                         </tr>
                         <tr>
@@ -163,7 +192,7 @@
                                 <label>文物材质</label>
                             </td>
                             <td class="col2">
-                                <input type="text" id="grumble" />
+                                <input type="text" id="grumble"/>
                             </td>
                         </tr>
                         <tr>
@@ -171,13 +200,13 @@
                                 <label>项目名称</label>
                             </td>
                             <td class="col2">
-                                <input type="text" id="grumble" />
+                                <input type="text" id="grumble"/>
                             </td>
                             <td class="col1">
                                 <label>项目年度</label>
                             </td>
                             <td class="col2">
-                                <input type="text" id="grumble" />
+                                <input type="text" id="grumble"/>
                             </td>
                         </tr>
                         <tr>
@@ -185,72 +214,96 @@
                                 <label>实施单位</label>
                             </td>
                             <td class="col2">
-                                <input type="text" id="grumble" />
+                                <input type="text" id="grumble"/>
                             </td>
                         </tr>
-                        <tr><td colspan="4">
-                        <button class="btn btn-blue">查询</button>
-                        <button class="btn btn-blue">清除</button>
-                        </td></tr>
-                        </table>
-                        </form>
-                </div>
+                        <tr>
+                            <td colspan="4">
+                                <button class="btn btn-blue">查询</button>
+                                <button class="btn btn-blue">清除</button>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
             </div>
         </div>
-        
-        <div class="grid_5">
-            <div class="box round"><!-- style="height: 1px" -->
+    </div>
+
+    <div class="grid_5">
+        <div class="box round"><!-- style="height: 1px" -->
             <h2>统计图</h2>
-                  <div id="bar-chart" style="height: 250px">
-                    </div>
-            </div>
-       </div>
-        <div class="grid_5" style="float: right;">
-            <div class="box round">
-            <h2>检索结果</h2>
-                <div class="block">
-                     <table class="data display datatable" id="example">
-					<thead>
-						<tr>
-							<th>文物号</th>
-							<th>文物名称</th>
-							<th>材质</th>
-							<th>评估分级</th>
-							<th>评估时间</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr class="odd gradeX">
-							<td>故00000001</td>
-							<td>石狮</td>
-							<td>石质</td>
-							<td class="center">良好</td>
-							<td class="center">2014-09-21</td>
-						</tr>
-						<tr class="gradeA">
-							<td>故00000002</td>
-							<td>石狮</td>
-							<td>石质</td>
-							<td class="center">良好</td>
-							<td class="center">2014-09-21</td>
-						</tr>
-						<tr class="gradeB">
-							<td>故00000003</td>
-							<td>石狮</td>
-							<td>石质</td>
-							<td class="center">良好</td>
-							<td class="center">2014-09-21</td>
-						</tr>
-						
-					</tbody>
-				</table>
-                </div>
+            <div id="bar-chart" style="height: 250px">
             </div>
         </div>
-        <div class="clear">
+    </div>
+    <div class="grid_5" style="float: right;">
+        <div class="box round">
+            <h2>检索结果</h2>
+            <div class="block">
+                <table class="data display datatable" id="example">
+                    <thead>
+                    <tr>
+                        <th>文物号</th>
+                        <th>文物名称</th>
+                        <th>材质</th>
+                        <th>评估分级</th>
+                        <th>评估时间</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="odd gradeX">
+                        <td>故00000001</td>
+                        <td>石狮</td>
+                        <td>石质</td>
+                        <td class="center">良好</td>
+                        <td class="center">2014-09-21</td>
+                    </tr>
+                    <tr class="gradeA">
+                        <td>故00000002</td>
+                        <td>石狮</td>
+                        <td>石质</td>
+                        <td class="center">良好</td>
+                        <td class="center">2014-09-21</td>
+                    </tr>
+                    <tr class="gradeB">
+                        <td>故00000003</td>
+                        <td>石狮</td>
+                        <td>石质</td>
+                        <td class="center">良好</td>
+                        <td class="center">2014-09-21</td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
     <div class="clear">
     </div>
+</div>
+<div class="clear">
+</div>
+<div style="width: 100%;height: 100%">
+    <div id="dialog" title="自定义检索条件">
+        <form>
+            <table class="form">
+                <tr><input type="checkbox"/>参考号
+                    <input type="checkbox"/>文物时代
+                    <input type="checkbox"/>文物时代
+                    <input type="checkbox"/>参考号
+                    <input type="checkbox"/>文物时代
+                </tr>
+
+                <tr>
+                    <td colspan="4">
+                        <button class="btn btn-blue">确定</button>
+                        <button class="btn btn-blue">清除</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+
+    </div>
+</div>
 </body>
 </html>
