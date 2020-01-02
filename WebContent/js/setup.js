@@ -1,14 +1,14 @@
-﻿function setSidebarHeight(){
-	setTimeout(function(){
-var height = $(document).height();
-    $('.grid_12').each(function () {
-        height -= $(this).outerHeight();
-    });
-    height -= $('#site_info').outerHeight();
-	height-=1;
-	//salert(height);
-    $('.sidemenu').css('height', height);
-						},100);
+﻿function setSidebarHeight() {
+    setTimeout(function () {
+        var height = $(document).height();
+        $('.grid_12').each(function () {
+            height -= $(this).outerHeight();
+        });
+        height -= $('#site_info').outerHeight();
+        height -= 1;
+        //salert(height);
+        $('.sidemenu').css('height', height);
+    }, 100);
 }
 
 //Dashboard chart
@@ -26,16 +26,16 @@ function setupDashboardChart(containerElementId) {
         // be applied to all series in the chart.
         seriesDefaults: {
             renderer: $.jqplot.BarRenderer,
-            rendererOptions: { fillToZero: true }
+            rendererOptions: {fillToZero: true}
         },
         // Custom labels for the series are specified with the "label"
         // option on the series option.  Here a series option object
         // is specified for each series.
         series: [
-            { label: 'Apples' },
-            { label: 'Oranges' },
-            { label: 'Mangoes' },
-            { label: 'Grapes' }
+            {label: 'Apples'},
+            {label: 'Oranges'},
+            {label: 'Mangoes'},
+            {label: 'Grapes'}
         ],
         // Show the legend and put it outside the grid, but inside the
         // plot container, shrinking the grid to accomodate the legend.
@@ -55,7 +55,7 @@ function setupDashboardChart(containerElementId) {
             // not touch, the grid boundaries.  1.2 is the default padding.
             yaxis: {
                 pad: 1.05,
-                tickOptions: { formatString: '$%d' }
+                tickOptions: {formatString: '$%d'}
             }
         }
     });
@@ -86,58 +86,58 @@ function drawPointsChart(containerElement) {
     }
 
     var plot3 = $.jqplot(containerElement, [cosPoints, sinPoints, powPoints1, powPoints2],
-    {
-        title: 'Line Style Options',
-        // Series options are specified as an array of objects, one object
-        // for each series.
-        series: [
-          {
-              // Change our line width and use a diamond shaped marker.
-              lineWidth: 2,
-              markerOptions: { style: 'dimaond' }
-          },
-          {
-              // Don't show a line, just show markers.
-              // Make the markers 7 pixels with an 'x' style
-              showLine: false,
-              markerOptions: { size: 7, style: "x" }
-          },
-          {
-              // Use (open) circlular markers.
-              markerOptions: { style: "circle" }
-          },
-          {
-              // Use a thicker, 5 pixel line and 10 pixel
-              // filled square markers.
-              lineWidth: 5,
-              markerOptions: { style: "filledSquare", size: 10 }
-          }
-      ]
-    }
-  );
+        {
+            title: 'Line Style Options',
+            // Series options are specified as an array of objects, one object
+            // for each series.
+            series: [
+                {
+                    // Change our line width and use a diamond shaped marker.
+                    lineWidth: 2,
+                    markerOptions: {style: 'dimaond'}
+                },
+                {
+                    // Don't show a line, just show markers.
+                    // Make the markers 7 pixels with an 'x' style
+                    showLine: false,
+                    markerOptions: {size: 7, style: "x"}
+                },
+                {
+                    // Use (open) circlular markers.
+                    markerOptions: {style: "circle"}
+                },
+                {
+                    // Use a thicker, 5 pixel line and 10 pixel
+                    // filled square markers.
+                    lineWidth: 5,
+                    markerOptions: {style: "filledSquare", size: 10}
+                }
+            ]
+        }
+    );
 
 }
 
 //draw pie chart
 function drawPieChart(containerElement) {
     var data = [
-    ['很差', 12], ['较差', 9], ['一半', 14],
-    ['较好', 16]
-  ];
+        ['很差', 12], ['较差', 9], ['一半', 14],
+        ['较好', 16]
+    ];
     var plot1 = jQuery.jqplot(containerElement, [data],
-    {
-        seriesDefaults: {
-            // Make this a pie chart.
-            renderer: jQuery.jqplot.PieRenderer,
-            rendererOptions: {
-                // Put data labels on the pie slices.
-                // By default, labels show the percentage of the slice.
-                showDataLabels: true
-            }
-        },
-        legend: { show: true, location: 'e' }
-    }
-  );
+        {
+            seriesDefaults: {
+                // Make this a pie chart.
+                renderer: jQuery.jqplot.PieRenderer,
+                rendererOptions: {
+                    // Put data labels on the pie slices.
+                    // By default, labels show the percentage of the slice.
+                    showDataLabels: true
+                }
+            },
+            legend: {show: true, location: 'e'}
+        }
+    );
 }
 //draw donut chart
 function drawDonutChart(containerElement) {
@@ -163,8 +163,8 @@ function drawDonutChart(containerElement) {
 }
 
 //draw bar chart
-function drawBarchart(containerElement,data,ticks) {
-    var s1 = [815, 805,800];
+function drawBarchart(containerElement, data, ticks) {
+    var s1 = [815, 805, 800];
     var s2 = [610, 610];
     // Can specify a custom tick Array.
     // Ticks should match up one for each y value (category) in the series.
@@ -175,21 +175,21 @@ function drawBarchart(containerElement,data,ticks) {
         // be applied to all series in the chart.
         seriesDefaults: {
             renderer: $.jqplot.BarRenderer,
-            rendererOptions: { fillToZero: true },
+            rendererOptions: {fillToZero: true},
             min: 0, //横(纵)轴最小刻度值
             max: 1000,//横(纵)轴最大刻度值
-            lineWidth:1//
+            lineWidth: 1//
         },
         // Custom labels for the series are specified with the "label"
         // option on the series option.  Here a series option object
         // is specified for each series.
         series: [
             // { label: '文物' },
-            { label: 'xx' }
+            {label: 'xx'}
         ],
         Axis: {
-        	min :0,
-        	max:1000
+            min: 0,
+            max: 1000
         },
         // Show the legend and put it outside the grid, but inside the
         // plot container, shrinking the grid to accomodate the legend.
@@ -209,7 +209,7 @@ function drawBarchart(containerElement,data,ticks) {
             // not touch, the grid boundaries.  1.2 is the default padding.
             yaxis: {
                 pad: 2,
-                tickOptions: { formatString: '%d' }
+                tickOptions: {formatString: '%d'}
             }
         }
     });
@@ -218,8 +218,8 @@ function drawBarchart(containerElement,data,ticks) {
 function drawBubbleChart(containerElement) {
 
     var arr = [[11, 123, 1236, ""], [45, 92, 1067, ""],
-  [24, 104, 1176, ""], [50, 23, 610, "A"],
-  [18, 17, 539, ""], [7, 89, 864, ""], [2, 13, 1026, ""]];
+        [24, 104, 1176, ""], [50, 23, 610, "A"],
+        [18, 17, 539, ""], [7, 89, 864, ""], [2, 13, 1026, ""]];
 
     var plot1b = $.jqplot(containerElement, [arr], {
         seriesDefaults: {
@@ -243,28 +243,28 @@ function drawBubbleChart(containerElement) {
     // Now bind function to the highlight event to show the tooltip
     // and highlight the row in the legend. 
     $('#' + containerElement).bind('jqplotDataHighlight',
-    function (ev, seriesIndex, pointIndex, data, radius) {
-        var chart_left = $('#' + containerElement).offset().left,
-        chart_top = $('#' + containerElement).offset().top,
-        x = plot1b.axes.xaxis.u2p(data[0]),  // convert x axis unita to pixels
-        y = plot1b.axes.yaxis.u2p(data[1]);  // convert y axis units to pixels
-        var color = 'rgb(50%,50%,100%)';
-        $('#tooltip1b').css({ left: chart_left + x + radius + 5, top: chart_top + y });
-        $('#tooltip1b').html('<span style="font-size:14px;font-weight:bold;color:' +
-      color + ';">' + data[3] + '</span><br />' + 'x: ' + data[0] +
-      '<br />' + 'y: ' + data[1] + '<br />' + 'r: ' + data[2]);
-        $('#tooltip1b').show();
-        $('#legend1b tr').css('background-color', '#ffffff');
-        $('#legend1b tr').eq(pointIndex + 1).css('background-color', color);
-    });
+        function (ev, seriesIndex, pointIndex, data, radius) {
+            var chart_left = $('#' + containerElement).offset().left,
+                chart_top = $('#' + containerElement).offset().top,
+                x = plot1b.axes.xaxis.u2p(data[0]),  // convert x axis unita to pixels
+                y = plot1b.axes.yaxis.u2p(data[1]);  // convert y axis units to pixels
+            var color = 'rgb(50%,50%,100%)';
+            $('#tooltip1b').css({left: chart_left + x + radius + 5, top: chart_top + y});
+            $('#tooltip1b').html('<span style="font-size:14px;font-weight:bold;color:' +
+                color + ';">' + data[3] + '</span><br />' + 'x: ' + data[0] +
+                '<br />' + 'y: ' + data[1] + '<br />' + 'r: ' + data[2]);
+            $('#tooltip1b').show();
+            $('#legend1b tr').css('background-color', '#ffffff');
+            $('#legend1b tr').eq(pointIndex + 1).css('background-color', color);
+        });
 
     // Bind a function to the unhighlight event to clean up after highlighting.
     $('#' + containerElement).bind('jqplotDataUnhighlight',
-      function (ev, seriesIndex, pointIndex, data) {
-          $('#tooltip1b').empty();
-          $('#tooltip1b').hide();
-          $('#' + containerElement + ' tr').css('background-color', '#ffffff');
-      });
+        function (ev, seriesIndex, pointIndex, data) {
+            $('#tooltip1b').empty();
+            $('#tooltip1b').hide();
+            $('#' + containerElement + ' tr').css('background-color', '#ffffff');
+        });
 }
 
 //-------------------------------------------------------------- */
@@ -459,14 +459,15 @@ function setupDialogBox(containerElement, associatedButton) {
     $("#" + containerElement).dialog({
         autoOpen: false,
         show: "blind",
-		minWidth : 650,
-		//position: [100, 100],
+        minWidth: 650,
+        //position: [100, 100],
         hide: "explode",
-        using:function(){
-        	$(this).css({
-        		"position":"absolute",
-        		"top":"100px",
-        		"left":"650px" });
+        using: function () {
+            $(this).css({
+                "position": "absolute",
+                "top": "100px",
+                "left": "650px"
+            });
         }
     });
 
@@ -516,5 +517,5 @@ function setupLeftMenu() {
         .find("a.menuitem:first").addClass("current")
         .next().addClass("current");
 
-		$('#section-menu .submenu').css('height','auto');
+    $('#section-menu .submenu').css('height', 'auto');
 }
