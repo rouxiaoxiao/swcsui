@@ -121,7 +121,7 @@ function drawPointsChart(containerElement) {
 //draw pie chart
 function drawPieChart(containerElement) {
     var data = [
-        ['很差', 12], ['较差', 9], ['一半', 14],
+        ['很差', 12], ['较差', 9], ['一般', 14],
         ['较好', 16]
     ];
     var plot1 = jQuery.jqplot(containerElement, [data],
@@ -476,7 +476,33 @@ function setupDialogBox(containerElement, associatedButton) {
         return false;
     });
 }
+function setupDialogBox_danti(containerElement, associatedButton) {
+    $.fx.speeds._default = 1000;
+    $("#" + containerElement).dialog({
+        autoOpen: false,
+        show: "blind",
+        minWidth: 1024,
+        position: { using:function(pos){
+			var topOffset = $(this).css(pos).offset().top;
+			if (topOffset = 0||topOffset>0) {
+				$(this).css('top', 20);
+			}
+		}},
+        hide: "explode"/*,
+        using: function () {
+            $(this).css({
+                "position": "absolute",
+                "top": "10px",
+                "left": "10px"
+            });
+        }*/
+    });
 
+    $("#" + associatedButton).click(function () {
+        $("#" + containerElement).dialog("open");
+        return false;
+    });
+}
 //setup accordion
 
 function setupAccordion(containerElement) {
@@ -514,7 +540,7 @@ function setupLeftMenu() {
             data.newHeader.next().andSelf().addClass("current");
             data.oldHeader.next().andSelf().removeClass("current");
         })
-        .find("a.menuitem:first").addClass("current")
+        //.find("a.menuitem:first").addClass("current")
         .next().addClass("current");
 
     $('#section-menu .submenu').css('height', 'auto');

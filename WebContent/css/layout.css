@@ -309,6 +309,7 @@ table.form label {
 
 table.form .col1{width:10%;}
 table.form .col2{}
+table.form .col3{width:35%;}
 table.form input, table.form select{
 
 	padding: 4px 4px 5px 4px;

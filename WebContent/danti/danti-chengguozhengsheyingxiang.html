@@ -1,0 +1,204 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>故宫世界文化遗产监测-室外陈设监测</title>
+    <link rel="stylesheet" type="text/css" href="../css/reset.css" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="../css/text.css" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="../css/grid.css" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="../css/layout.css" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="../css/nav.css" media="screen"/>
+    <link href="../css/table/demo_page.css" rel="stylesheet" type="text/css"/>
+    <link href="../css/fancy-button/fancy-button.css" rel="stylesheet" type="text/css"/>
+    <link href="../css/ui.multiselect.css" rel="stylesheet" type="text/css"/>
+    <!--Jquery UI CSS-->
+    <!--此条css添加后扩展条件可用，但左侧导航栏样式受影响-->
+    <link href="../css/themes/base/jquery.ui.all.css" rel="stylesheet" type="text/css"/>
+    <!--[if IE 6]>
+    <link rel="stylesheet" type="text/css" href="../css/ie6.css" media="screen"/><![endif]-->
+    <!--[if IE 7]>
+    <link rel="stylesheet" type="text/css" href="../css/ie.css" media="screen"/><![endif]-->
+    <link href="../css/fancy-button/fancy-button.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" type="text/css" href="../css/my.css" media="screen"/>
+    <!-- BEGIN: load jquery -->
+    <script src="../js/jquery-1.6.4.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../js/jquery-ui/jquery.ui.core.min.js"></script>
+    <script src="../js/jquery-ui/jquery.ui.widget.min.js" type="text/javascript"></script>
+    <script src="../js/jquery-ui/jquery.ui.accordion.min.js" type="text/javascript"></script>
+    <script src="../js/jquery-ui/jquery.effects.core.min.js" type="text/javascript"></script>
+    <script src="../js/jquery-ui/jquery.effects.slide.min.js" type="text/javascript"></script>
+    <!-- END: load jquery -->
+    <!-- BEGIN: load jqplot -->
+    <link rel="stylesheet" type="text/css" href="../css/jquery.jqplot.min.css"/>
+    <!--[if lt IE 9]>
+    <script language="javascript" type="text/javascript" src="../js/jqPlot/excanvas.min.js"></script><![endif]-->
+    <script language="javascript" type="text/javascript" src="../js/jqPlot/jquery.jqplot.min.js"></script>
+    <script language="javascript" type="text/javascript" src="../js/jqPlot/plugins/jqplot.barRenderer.min.js"></script>
+    <script language="javascript" type="text/javascript" src="../js/jqPlot/plugins/jqplot.pieRenderer.min.js"></script>
+    <script language="javascript" type="text/javascript"
+            src="../js/jqPlot/plugins/jqplot.categoryAxisRenderer.min.js"></script>
+    <script language="javascript" type="text/javascript" src="../js/jqPlot/plugins/jqplot.highlighter.min.js"></script>
+    <script language="javascript" type="text/javascript" src="../js/jqPlot/plugins/jqplot.pointLabels.min.js"></script>
+    <script src="../js/jquery-ui/jquery.ui.sortable.min.js" type="text/javascript"></script>
+    <script src="../js/table/jquery.dataTables.min.js" type="text/javascript"></script>
+    <script src="../js/jquery-ui/jquery.ui.dialog.min.js" type="text/javascript"></script>
+    <script src="../js/jquery-ui/jquery.effects.core.min.js" type="text/javascript"></script>
+    <script src="../js/jquery-ui/jquery.effects.blind.min.js" type="text/javascript"></script>
+    <script src="../js/jquery-ui/jquery.effects.explode.min.js" type="text/javascript"></script>
+    <script src="../js/ui.multiselect.js" type="text/javascript"></script>
+    <!-- END: load jqplot -->
+    <script type="text/javascript" src="../js/table/jquery.dataTables.min.js"></script>
+    <script src="../js/setup.js" type="text/javascript"></script>
+
+    <script type="text/javascript"
+            src="http://api.map.baidu.com/api?v=3.0&ak=HbfM1ta0T32ZErL8Wks0vjRRpbtsB0AL"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            setupLeftMenu();
+            $('.datatable').dataTable({});
+        });
+    </script>
+</head>
+<body>
+<div class="container_12">
+    <div id="trlist" title="文物单体信息">
+        <div class="grid_2">
+            <div class="box sidemenu">
+                <div class="block" id="section-menu">
+                    <ul class="section menu">
+                        <li><a href="danti-jibenxinxi.html">基本信息</a></li>
+                        <li><a href="danti-caizhijianding.html">材质检测信息</a></li>
+                        <li><a class="menuitem">监测信息</a>
+                            <ul class="submenu">
+                                <li><a href="danti-baocunxianzhuangpinggu.html">保存现状评估</a></li>
+                                <li><a href="danti-wulixingnengjiance.html">物理性能检测</a></li>
+                                <li><a href="danti-binghaixinxi.html">病害信息</a></li>
+                                <li><a href="danti-binghaichanwufenxi.html">病害产物分析</a></li>
+                                <li><a href="danti-jiegoubianhuajiance.html">结构变化监测</a></li>
+                            </ul>
+                        </li>
+                        <li><a class="menuitem">测绘信息</a>
+                            <ul class="submenu">
+                                <li><a href="danti-yuanshiyingxiang.html">原始影像</a></li>
+                                <li><a href="danti-yuanshidianyun.html">原始点云</a></li>
+                                <li><a href="danti-chengguodianyun.html">成果点云</a></li>
+                                <li><a href="danti-chengguomoxing.html">成果模型</a></li>
+                                <li><a href="danti-chengguocaizhimoxing.html">成果材质模型</a></li>
+                                <li><a href="danti-chengguozhengsheyingxiang.html">成果正射影像</a></li>
+                                <li><a href="danti-xianhuatu.html">线划图</a></li>
+                                <li><a href="danti-wenzibaogao.html">文字报告</a></li>
+                            </ul>
+                        </li>
+                        <li><a class="menuitem">管理和保护</a>
+                            <ul class="submenu">
+                                <li><a>日常巡检</a></li>
+                                <li><a>保养维护</a></li>
+                                <li><a>保护维修</a></li>
+                                <li><a>借拨收存</a></li>
+                                <li><a>损毁丢失</a></li>
+                            </ul>
+                        </li>
+                        <li><a>报警信息</a></li>
+                        <li><a href="danti-wenxianxinxi.html">文献信息</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid_8">
+            <div class="grid_12">
+                <div class="box round">
+                    <h2>成果正射影像</h2>
+                    <table class="data display datatable" id="example">
+                        <thead>
+                        <tr>
+                            <th>文物号</th>
+                            <th>文物名称</th>
+                            <th>文件名称</th>
+                            <th>拍摄部位</th>
+                            <th>影像预览</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr id="tr" class="odd gradeX">
+                            <td>故00000001</td>
+                            <td>石狮</td>
+                            <td>成果正射影像-浏览级.jpeg</td>
+                            <td>全景</td>
+                            <td><img src="#"></img></td>
+                        </tr>
+                        <tr id="tr" class="odd gradeX">
+                            <td>故00000002</td>
+                            <td>石狮</td>
+                            <td>成果正射影像-浏览级.jpeg</td>
+                            <td>全景</td>
+                            <td><img src="#"></img></td>
+                        </tr>
+                        <tr id="tr" class="odd gradeX">
+                            <td>故00000003</td>
+                            <td>石狮</td>
+                            <td>成果正射影像-浏览级.jpeg</td>
+                            <td>全景</td>
+                            <td><img src="#"></img></td>
+                        </tr>
+                        <tr id="tr" class="odd gradeX">
+                            <td>故00000004</td>
+                            <td>石狮</td>
+                            <td>成果正射影像-浏览级.jpeg</td>
+                            <td>全景</td>
+                            <td><img src="#"></img></td>
+                        </tr>
+                        <tr id="tr" class="odd gradeX">
+                            <td>故00000005</td>
+                            <td>石狮</td>
+                            <td>成果正射影像-浏览级.jpeg</td>
+                            <td>全景</td>
+                            <td><img src="#"></img></td>
+                        </tr>
+                        <tr id="tr" class="odd gradeX">
+                            <td>故00000006</td>
+                            <td>石狮</td>
+                            <td>成果正射影像-浏览级.jpeg</td>
+                            <td>全景</td>
+                            <td><img src="#"></img></td>
+                        </tr>
+                        <tr id="tr" class="odd gradeX">
+                            <td>故00000007</td>
+                            <td>石狮</td>
+                            <td>成果正射影像-浏览级.jpeg</td>
+                            <td>全景</td>
+                            <td><img src="#"></img></td>
+                        </tr>
+                        <tr id="tr" class="odd gradeX">
+                            <td>故00000008</td>
+                            <td>石狮</td>
+                            <td>成果正射影像-浏览级.jpeg</td>
+                            <td>全景</td>
+                            <td><img src="#"></img></td>
+                        </tr>
+                        <tr id="tr" class="odd gradeX">
+                            <td>故00000009</td>
+                            <td>石狮</td>
+                            <td>成果正射影像-浏览级.jpeg</td>
+                            <td>全景</td>
+                            <td><img src="#"></img></td>
+                        </tr>
+                        <tr id="tr" class="odd gradeX">
+                            <td>故00000010</td>
+                            <td>石狮</td>
+                            <td>成果正射影像-浏览级.jpeg</td>
+                            <td>全景</td>
+                            <td><img src="#"></img></td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
