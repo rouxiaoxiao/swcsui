@@ -2,28 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="30dc62b1-f0f2-40b2-bd07-d6d7d2c3ba86" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/danti/danti-baocunxianzhuangpinggu.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/danti/danti-binghaichanwufenxi.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/danti/danti-binghaixinxi.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/danti/danti-chengguocaizhimoxing.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/danti/danti-chengguodianyun.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/danti/danti-chengguomoxing.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/danti/danti-chengguozhengsheyingxiang.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/danti/danti-jiegoubianhuajiance.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/danti/danti-wenxianxinxi.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/danti/danti-wenzibaogao.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/danti/danti-wulixingnengjiance.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/danti/danti-xianhuatu.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/danti/danti-yuanshidianyun.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/danti/danti-yuanshiyingxiang.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/css/layout.css" afterPath="$PROJECT_DIR$/WebContent/css/layout.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/css/my.css" afterPath="$PROJECT_DIR$/WebContent/css/my.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/index.html" afterPath="$PROJECT_DIR$/WebContent/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/jianceyuguanli/baocunxianzhuangtongji.html" afterPath="$PROJECT_DIR$/WebContent/jianceyuguanli/baocunxianzhuangtongji.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/jianceyuguanli/richangxuncha.html" afterPath="$PROJECT_DIR$/WebContent/jianceyuguanli/richangxuncha.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/jianceyuguanli/wenwushuliangtongji.html" afterPath="$PROJECT_DIR$/WebContent/jianceyuguanli/wenwushuliangtongji.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/js/setup.js" afterPath="$PROJECT_DIR$/WebContent/js/setup.js" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,13 +16,25 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="danti-jibenxinxi.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="danti-jibenxinxi.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WebContent/danti/danti-jibenxinxi.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="176">
-              <caret line="76" column="27" lean-forward="true" selection-start-line="76" selection-start-column="27" selection-end-line="76" selection-end-column="27" />
+              <caret line="76" column="27" lean-forward="false" selection-start-line="76" selection-start-column="27" selection-end-line="76" selection-end-column="27" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/WebContent/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="385">
+              <caret line="14" column="43" lean-forward="false" selection-start-line="14" selection-start-column="43" selection-end-line="14" selection-end-column="43" />
+              <folding>
+                <marker date="1578378604994" expanded="true" signature="8419:8675" ph="..." />
               </folding>
             </state>
           </provider>
@@ -52,7 +44,7 @@
         <entry file="file://$PROJECT_DIR$/WebContent/danti/danti-caizhijianding.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="84">
-              <caret line="68" column="73" lean-forward="true" selection-start-line="68" selection-start-column="24" selection-end-line="68" selection-end-column="73" />
+              <caret line="68" column="73" lean-forward="false" selection-start-line="68" selection-start-column="24" selection-end-line="68" selection-end-column="73" />
               <folding />
             </state>
           </provider>
@@ -65,30 +57,6 @@
               <caret line="68" column="47" lean-forward="false" selection-start-line="68" selection-start-column="47" selection-end-line="68" selection-end-column="47" />
               <folding>
                 <element signature="n#tr#3;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="danti-jiegoubianhuajiance.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebContent/danti/danti-jiegoubianhuajiance.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
-              <caret line="106" column="0" lean-forward="false" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
-              <folding>
-                <element signature="n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="danti-wenxianxinxi.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebContent/danti/danti-wenxianxinxi.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="106" column="0" lean-forward="false" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
-              <folding>
-                <element signature="n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -147,7 +115,7 @@
         <entry file="file://$PROJECT_DIR$/WebContent/danti/danti-yuanshiyingxiang.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="49">
-              <caret line="64" column="27" lean-forward="true" selection-start-line="64" selection-start-column="27" selection-end-line="64" selection-end-column="27" />
+              <caret line="64" column="27" lean-forward="false" selection-start-line="64" selection-start-column="27" selection-end-line="64" selection-end-column="27" />
               <folding>
                 <element signature="n#tr#9;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
               </folding>
@@ -252,7 +220,6 @@
         <option value="$PROJECT_DIR$/WebContent/jianceyuguanli/richangxuncha.html" />
         <option value="$PROJECT_DIR$/WebContent/jianceyuguanli/sunhuidiushi.html" />
         <option value="$PROJECT_DIR$/WebContent/baoyangweixiu.html" />
-        <option value="$PROJECT_DIR$/WebContent/index.html" />
         <option value="$PROJECT_DIR$/WebContent/jianceheguanli.html" />
         <option value="$PROJECT_DIR$/WebContent/cehuixinxi.html" />
         <option value="$PROJECT_DIR$/WebContent/wendangguanli.html" />
@@ -279,6 +246,7 @@
         <option value="$PROJECT_DIR$/WebContent/danti/danti-yuanshiyingxiang.html" />
         <option value="$PROJECT_DIR$/WebContent/danti/danti-caizhijianding.html" />
         <option value="$PROJECT_DIR$/WebContent/danti/danti-baocunxianzhuangpinggu.html" />
+        <option value="$PROJECT_DIR$/WebContent/index.html" />
       </list>
     </option>
   </component>
@@ -417,24 +385,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="swcsui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="swcsui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WebContent" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="danti" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
@@ -475,7 +425,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.baocunxianzhuangtongji.html">
+  <component name="RunManager" selected="JavaScript Debug.index.html">
     <configuration default="false" name="wenwushuliangtongji.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/swcsui/WebContent/jianceyuguanli/wenwushuliangtongji.html">
       <method />
     </configuration>
@@ -887,8 +837,8 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.baocunxianzhuangtongji.html" />
-        <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.index.html" />
+        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.index.html" />
+        <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.baocunxianzhuangtongji.html" />
         <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.buttons.html" />
         <item index="3" class="java.lang.String" itemvalue="JavaScript Debug.charts.html" />
         <item index="4" class="java.lang.String" itemvalue="JavaScript Debug.wenwushuliangtongji.html" />
@@ -915,12 +865,12 @@
       <workItem from="1577926551622" duration="19644000" />
       <workItem from="1578013079064" duration="9943000" />
       <workItem from="1578300439372" duration="3241000" />
-      <workItem from="1578358916050" duration="10358000" />
+      <workItem from="1578358916050" duration="10825000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="86389000" />
+    <option name="totallyTimeSpent" value="86856000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
@@ -937,10 +887,10 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21971497" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17577197" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13552916" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.100431964" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="BPMNPalette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32897863" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -968,13 +918,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/WebContent/css/fancy-button/fancy-button.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/css/nav.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1074,16 +1017,6 @@
         <state relative-caret-position="-5924">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-455">
-          <caret line="65" column="6" lean-forward="true" selection-start-line="65" selection-start-column="6" selection-end-line="65" selection-end-column="6" />
-          <folding>
-            <marker date="1578274888580" expanded="true" signature="8412:8668" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1344,7 +1277,7 @@
     <entry file="file://$PROJECT_DIR$/WebContent/danti/danti-yuanshiyingxiang.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="49">
-          <caret line="64" column="27" lean-forward="true" selection-start-line="64" selection-start-column="27" selection-end-line="64" selection-end-column="27" />
+          <caret line="64" column="27" lean-forward="false" selection-start-line="64" selection-start-column="27" selection-end-line="64" selection-end-column="27" />
           <folding>
             <element signature="n#tr#9;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
@@ -1354,7 +1287,7 @@
     <entry file="file://$PROJECT_DIR$/WebContent/danti/danti-caizhijianding.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="84">
-          <caret line="68" column="73" lean-forward="true" selection-start-line="68" selection-start-column="24" selection-end-line="68" selection-end-column="73" />
+          <caret line="68" column="73" lean-forward="false" selection-start-line="68" selection-start-column="24" selection-end-line="68" selection-end-column="73" />
           <folding />
         </state>
       </provider>
@@ -1372,9 +1305,27 @@
     <entry file="file://$PROJECT_DIR$/WebContent/danti/danti-jibenxinxi.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
-          <caret line="76" column="27" lean-forward="true" selection-start-line="76" selection-start-column="27" selection-end-line="76" selection-end-column="27" />
+          <caret line="76" column="27" lean-forward="false" selection-start-line="76" selection-start-column="27" selection-end-line="76" selection-end-column="27" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/css/ztree/demo.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="385">
+          <caret line="14" column="43" lean-forward="false" selection-start-line="14" selection-start-column="43" selection-end-line="14" selection-end-column="43" />
+          <folding>
+            <marker date="1578378604994" expanded="true" signature="8419:8675" ph="..." />
           </folding>
         </state>
       </provider>
